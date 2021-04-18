@@ -7,5 +7,6 @@
         'docs' => 'Dokumentácia',
         'login' => 'Prihlásenie',
         'lang' => 'Jazyk',
+        'short' => 'SK',
         #'' => '',
     ];

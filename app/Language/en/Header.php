@@ -7,5 +7,6 @@
         'docs' => 'Documentation',
         'login' => 'Login',
         'lang' => 'LANG',
+        'short' => 'EN',
         #'' => '',
     ];
