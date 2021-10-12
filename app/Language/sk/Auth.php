@@ -23,14 +23,30 @@ return [
 
 	// Login
 	'login_heading'         => 'Prihlásenie',
-	'login_subheading' => 'Prosím prihláste sa nižšie pomocou svojho emailu alebo užívateľským menom a heslom',
+	'login_subheading' => 'Prosím prihláste sa nižšie pomocou svojho emailu a hesla',
 	'login_identity_label' => 'E-mail:',
 	'login_password_label' => 'Heslo',
 	'login_remember_label' => 'Zampamätať:',
 	'login_submit_btn' => 'Prihlásiť',
 	'login_forgot_password' => 'Zabudli ste heslo?',
 
-	// Index
+    // Registration
+    'register_heading'         => 'Registrácia',
+    'register_subheading' => 'Prosím vytvorte nové konto pomocou formuláru nižšie.',
+    'register_identity_label' => 'E-mail:',
+    'register_name' => 'Meno:',
+    'register_password_label' => 'Heslo',
+    'register_submit_btn' => 'Registrovať',
+    'register_login' => 'Máte už konto? Prihláste sa',
+    'register_forgot_password' => 'Zabudli ste heslo?',
+    'register_feature_1_title' => 'Feature 1',
+    'register_feature_2_title' => 'Feature 2',
+    'register_feature_3_title' => 'Feature 3',
+    'register_feature_1_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.',
+    'register_feature_2_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.',
+    'register_feature_3_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.',
+
+    // Index
 	'index_heading' => 'Používatelia',
 	'index_subheading' => 'Nižšie je zoznam používateľov.',
 	'index_fname_th' => 'Meno',

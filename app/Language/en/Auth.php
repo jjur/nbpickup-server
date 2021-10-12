@@ -25,12 +25,28 @@ return [
 
 	// Login
 	'login_heading'         => 'Login',
-	'login_subheading'      => 'Please login with your email/username and password below.',
+	'login_subheading'      => 'Please login with your email and password below.',
 	'login_identity_label'  => 'Email:',
 	'login_password_label'  => 'Password:',
 	'login_remember_label'  => 'Remember Me:',
 	'login_submit_btn'      => 'Login',
 	'login_forgot_password' => 'Forgot your password?',
+
+    // Registration
+    'register_heading'         => 'Registration',
+    'register_subheading' => 'Please register your new account bellow.',
+    'register_identity_label' => 'Email:',
+    'register_name' => 'Name:',
+    'register_password_label' => 'Password',
+    'register_submit_btn' => 'Register',
+    'register_login' => 'Already registred? Log in',
+    'register_forgot_password' => 'Forgot your password?',
+    'register_feature_1_title' => 'Feature 1',
+    'register_feature_2_title' => 'Feature 2',
+    'register_feature_3_title' => 'Feature 3',
+    'register_feature_1_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.',
+    'register_feature_2_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.',
+    'register_feature_3_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.',
 
 	// Index
 	'index_heading'           => 'Users',
