@@ -49,7 +49,7 @@
                         <a href="#" class="nav-link">Students</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Docs</a>
+                        <a href="https://docs.nbpickup.org/" class="nav-link">Docs</a>
                     </li>
                 </ul>
             </div>
