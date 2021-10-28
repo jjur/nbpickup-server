@@ -10,6 +10,8 @@ Welcome to nbpickup's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   pages/registration
+   pages/deployment
 
 
 Indices and tables
