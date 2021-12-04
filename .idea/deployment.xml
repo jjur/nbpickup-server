@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" uploadOnCheckin="6138350a-e5fb-4e5d-9ccc-881a997bba10" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="nbpickup" uploadOnCheckin="6138350a-e5fb-4e5d-9ccc-881a997bba10" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="AMAVET AZURE 2">
+      <paths name="AZURE AMAVET">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="AZURE AMAVET">
+      <paths name="Blio">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
@@ -32,5 +32,6 @@
       </paths>
     </serverData>
     <option name="myUploadOnCheckinName" value="nbpickup" />
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

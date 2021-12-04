@@ -21,7 +21,6 @@ class Dashboard extends BaseController
         global $DATA;
 
         $model_assignments = new AssignmentsModel();
-
         $DATA["Assignments"] = $model_assignments->get_own_assignments($DATA["user"]->id);
 
 
