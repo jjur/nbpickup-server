@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Editor Assignment</h1>
+                    <h1><?= lang("AssignmentEditor.page_title")?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -132,9 +132,18 @@
                                             <td></td>
                                             <td class="text-right py-0 align-middle">
                                             <div class="btn-group btn-group-sm">
-                                                <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                <a href="#" class="btn btn-success"><i class="fas fa-check"></i> Active</a>
                                             </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>100</td>
+                                            <td>11-7-2014</td>
+                                            <td>26 kB</td>
+                                            <td></td>
+                                            <td class="text-right py-0 align-middle">
+                                                <div class="btn-group btn-group-sm">
+                                                    <a href="#" class="btn btn-info"><i class="fas fa-arrow-alt-circle-up"></i> Make Active</a>
+                                                </div></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -230,7 +239,11 @@
                                         <tr>
                                             <td>requirements.txt</td>
                                             <td>10 kB</td>
-                                            <td></td>
+                                            <td class="text-right py-0 align-middle">
+                                                <div class="btn-group btn-group-sm">
+                                                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                </div></td>
                                         </tr>
                                         <tr>
                                             <td>notebook.ipynb</td>
@@ -249,6 +262,12 @@
                     </div>
 
 
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- I think knot needed at the moment <a href="#" class="btn btn-secondary">Cancel</a>-->
+                        <input type="submit" value="<?= lang("AssignmentEditor.save")?>" class="btn btn-success float-right">
+                    </div>
                 </div>
             </form>
         </div>

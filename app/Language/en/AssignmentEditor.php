@@ -1,5 +1,6 @@
 <?php
     return [
+        'page_title' => 'Assignemnt Title',
         'details_box_title' => 'Assignment Details',
         'name' => 'Assignment Title',
         'description' => 'Description',
@@ -24,7 +25,9 @@
 
         'files_box_title' => 'Assignment Files (Can be added/edited later)',
         'filename' => 'File Name',
-        #'' => '',
-        #'' => '',
+
+
+        'save' => 'Save & Next Page',
+        'cancel' => 'Cancel',
         #'' => '',
     ];
