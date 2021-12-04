@@ -16,7 +16,7 @@ class AssignmentsModel extends Model
     protected $deletedField  = 'a_deleted_at';
     protected $primaryKey = 'a_id';
 
-    public function get_own_assingments($user_id){
+    public function get_own_assignments($user_id){
         return $this->asArray()
             ->where(["a_owner"=> $user_id])
             ->findAll();

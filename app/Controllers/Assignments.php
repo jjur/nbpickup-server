@@ -14,6 +14,13 @@ class Assignments extends BaseController
 	}
 
 
+    public function create()
+    {
+        echo view("backend/header");
+        echo view("backend/assignment_step1");
+        return view('backend/footer');
+    }
+
 	public function edit($assignment_id)
     {
         echo view("backend/header");
