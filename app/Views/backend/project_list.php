@@ -25,7 +25,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Your Assingments</h3>
+                <h3 class="card-title">Your Assignments</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-block btn-success btn-sm">Create Assignment</button>
@@ -52,17 +52,22 @@
                     </tr>
                     </thead>
                     <tbody>
+
+                    <?php
+                    $counter = 0;
+                    foreach ($Assignments as $assignment){
+                        $counter ++;?>
                     <tr>
                         <td>
-                            #
+                            <?= $counter;?>
                         </td>
                         <td>
                             <a>
-                                AdminLTE v3
+                                <?= $assignment["a_name"]; ?>
                             </a>
                             <br/>
                             <small>
-                                Created 01.01.2019
+                                Created <?=$assignment["a_created_at"];?>
                             </small>
                         </td>
                         <td class="project_progress">
@@ -75,26 +80,26 @@
                             </small>
                         </td>
                         <td class="project-state">
-                            <span class="badge badge-success">Graded</span>
+                            <span class="badge badge-success"><?= $assignment["a_status"];?></span>
                         </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm" href="<?= base_url("/Assignments/view/".$assignment["a_id"]);?>">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="<?= base_url("/Assignments/edit/".$assignment["a_id"]);?>">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm" href="<?= base_url("/Assignments/delete/".$assignment["a_id"]);?>">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete
                             </a>
                         </td>
-                    </tr>
+                    </tr><?php } ?>
                     <tr>
                         <td>
                             #
