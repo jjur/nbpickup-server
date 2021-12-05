@@ -88,12 +88,13 @@
         myDropzone.removeAllFiles(true)
     }
     // DropzoneJS Demo Code End
+</script><script>
     $(function () {
         // CodeMirror
         CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
             mode: "python",
             theme: "monokai"
-        });
+        }).setSize(null,110);
     })
 </script>
 </body>
