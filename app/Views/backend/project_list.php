@@ -28,7 +28,7 @@
                 <h3 class="card-title">Your Assignments</h3>
 
                 <div class="card-tools">
-                    <a href="<?=base_url("Assignments/create");?>" class="btn btn-block btn-success btn-sm">Create Assignment</a>
+                    <a href="<?=base_url("Assignments/menu");?>" class="btn btn-block btn-success btn-sm">Create Assignment</a>
                 </div>
             </div>
             <div class="card-body p-0">

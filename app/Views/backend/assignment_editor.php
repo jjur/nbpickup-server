@@ -20,7 +20,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container">
-            <form method="post" action="<?= base_url("Assignment/create//next"); ?>">
+            <form method="post" action="<?= base_url("Assignments/create/".$id."/next"); ?>">
                 <div class="row">
 
                     <div class="col-md-6">
@@ -30,29 +30,27 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1"><?= lang("AssignmentEditor.name") ?></label>
-                                    <input type="a_name" class="form-control" id="exampleInputEmail1">
+                                    <label for="a_name"><?= lang("AssignmentEditor.name") ?></label>
+                                    <input type="text" class="form-control" id="a_name" name="a_name" value="<?= set_value('a_name', '') ?>">
                                 </div>
                                 <div class="form-group">
                                     <label><?= lang("AssignmentEditor.description") ?></label>
-                                    <textarea class="form-control" rows="3"
-                                              placeholder="(<?= lang("AssignmentEditor.optional") ?>)"></textarea>
+                                    <textarea class="form-control" rows="3" name="a_description"
+                                              placeholder="(<?= lang("AssignmentEditor.optional") ?>)"><?= set_value('a_description', '') ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label><?= lang("AssignmentEditor.programming_lang") ?></label>
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option value="1">Python</option>
+                                    <select class="form-control select2" style="width: 100%;" name="a_code_lang">
+                                        <option value="1" <?= set_select('a_code_lang', '1', true) ?>>Python</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label><?= lang("AssignmentEditor.language") ?></label>
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option value="EN">English</option>
-                                        <option value="SK">Slovak</option>
+                                    <select class="form-control select2" style="width: 100%;" name="a_lang">
+                                        <option value="EN" <?= set_select('a_lang', 'EN', true) ?>>English</option>
+                                        <option value="SK" <?= set_select('a_lang', 'SK', true) ?>>Slovak</option>
                                     </select>
                                 </div>
-                                <!-- TODO checkboxes -->
-
                             </div>
                         </div>
                     </div>

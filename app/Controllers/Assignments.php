@@ -10,35 +10,127 @@ const PAGE_TITLE = " | nbpickup | Dashboard";
 
 class Assignments extends BaseController
 {
-	public function index()
-	{
+    public function index()
+    {
         return redirect()->to('/Dashboard/projects');
-	}
+    }
 
 
-    public function create($mid = "None")
+    /**
+     * Page that displays options to create new assingment or duplicate an existing one.
+     */
+    public function menu()
+    {
+        global $DATA;
+        $model_assignments = new AssignmentsModel();
+        $DATA["Assignments"] = $model_assignments->get_own_assignments($DATA["user"]->id);
+        echo view("backend/header");
+        echo view("backend/assignment_step1", $DATA);
+        return view('backend/footer');
+    }
+
+
+    /**
+     * Displays the initial form to create or edit the assingment
+     * This function handles also the saving of the form if method is POST
+     *
+     * @param int $id
+     * @return string|void
+     */
+    public function create($id = -1)
     {
         global $DATA;
 
-        if ($mid == "None"){
-            $model_assignments = new AssignmentsModel();
-            $DATA["Assignments"] = $model_assignments->get_own_assignments($DATA["user"]->id);
-            echo view("backend/header");
-            echo view("backend/assignment_step1",$DATA);
-            return view('backend/footer');
-        }elseif ($mid = "blank"){
-            echo view("backend/header");
-            echo view("backend/assignment_editor");
-            return view('backend/footer');
+        # Load Libraries and helpers
+        helper("form"); # Load form validation library
+        $validation = \Config\Services::validation();
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $model_assignments = new AssignmentsModel();
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            // Perform form validation and save data to the server
+            // If action was successful, we redirect user to submission methods page
+            // Else we show the standard form so user can fix error in the form
+
+
+            // Validate data
+            $validation->setRule('a_name', 'Assignment Title', 'required');
+
+            # Run form validations
+            $validation->withRequest($this->request);
+            if (!$validation->run()) {
+                $session->setFlashdata('operation_action', 'show_alert');
+                $session->setFlashdata('operation_result', 'danger');
+                $session->setFlashdata('operation_content', "Invalid data received: " . $validation->listErrors());
+            } else {
+
+
+                // Colect data
+                $formdata = array(
+                    'a_name' => $request->getVar("a_name", FILTER_SANITIZE_STRING),
+                    'a_alias' => $request->getVar("a_alias", FILTER_SANITIZE_STRING),
+                    "a_description" => $request->getVar("a_description", FILTER_SANITIZE_STRING),
+                    "a_user" => $DATA["user"]->id,
+                    "a_status" => $request->getVar("a_status", FILTER_SANITIZE_NUMBER_INT),
+                    "a_code_lang" => $request->getVar("a_code_lang", FILTER_SANITIZE_NUMBER_INT),
+                    "a_lang" => $request->getVar("a_lang", FILTER_SANITIZE_STRING),
+                    "a_deadline" => $request->getVar("a_deadline", FILTER_SANITIZE_STRING),
+                    "a_anonymous_sub" => $request->getVar("a_anonymous_sub", FILTER_SANITIZE_NUMBER_INT),
+                    "a_unknown_users" => $request->getVar("a_unknown_users", FILTER_SANITIZE_NUMBER_INT),
+                    "a_public" => $request->getVar("a_public", FILTER_SANITIZE_NUMBER_INT)
+                );
+                if ($id == -1) {
+                    // Create new Assingment
+                    // One-time generation of Alias
+                    $formdata["a_alias"] = slug($formdata["a_name"] );
+                    $id = $model_assignments->insert($formdata);
+                } else {
+                    $model_assignments->update($formdata);
+                }
+                redirect("Assignments/settings/" . $id);
+            }
         }
+
+        // Load the form (empty or with data based on the Id
+        $DATA["id"] = $id;
+        echo view("backend/header");
+        echo view("backend/assignment_editor", $DATA);
+        return view('backend/footer');
 
     }
 
-	public function edit($assignment_id)
+    /*
+     * Diplays
+     */
+    public function settings($assignment_id)
+    {
+        global $DATA;
+        $DATA["id"] = $assignment_id;
+        echo view("backend/header");
+        echo view("backend/assignment_settings", $DATA);
+        return view('backend/footer');
+    }
+
+
+
+
+    public function edit($assignment_id)
     {
         echo view("backend/header");
         echo view("backend/project_list");
         return view('backend/footer');
     }
 
+}
+
+/*
+ * Removes special characters from name, puts hyphen and makes everything lowercase
+ * Source: https://stackoverflow.com/questions/3022185/convert-string-into-slug-with-single-hyphen-delimiters-only
+ */
+function slug($z){
+    $z = strtolower($z);
+    $z = preg_replace('/[^a-z0-9 -]+/', '', $z);
+    $z = str_replace(' ', '-', $z);
+    return trim($z, '-');
 }

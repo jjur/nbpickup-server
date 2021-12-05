@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/css/adminlte.min.css">
-
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/codemirror/codemirror.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/codemirror/theme/monokai.css">
     <!-- Falvicons -->
     <!-- TODO: https://catalin.red/svg-favicon-light-dark-theme/ -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>/assets/icons/apple-touch-icon.png">

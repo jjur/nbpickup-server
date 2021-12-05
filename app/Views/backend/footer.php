@@ -27,7 +27,9 @@
 <script src="<?= base_url(); ?>/assets_admin/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url(); ?>/assets_admin/js/demo.js"></script>
-
+<!-- CodeMirror -->
+<script src="<?= base_url(); ?>/assets_admin/plugins/codemirror/codemirror.js"></script>
+<script src="<?= base_url(); ?>/assets_admin/plugins/codemirror/mode/python/python.js"></script>
 <script>
     $("input[data-bootstrap-switch]").each(function(){
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
@@ -86,7 +88,13 @@
         myDropzone.removeAllFiles(true)
     }
     // DropzoneJS Demo Code End
-
+    $(function () {
+        // CodeMirror
+        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "python",
+            theme: "monokai"
+        });
+    })
 </script>
 </body>
 </html>
