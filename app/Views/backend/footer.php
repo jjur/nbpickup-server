@@ -97,5 +97,11 @@
         }).setSize(null,110);
     })
 </script>
+<script>$('#a_deadline').daterangepicker({
+        timePicker: true,
+        timePickerIncrement: 30,
+        locale: {
+            format: 'MM/DD/YYYY hh:mm A'
+        }</script>
 </body>
 </html>

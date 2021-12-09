@@ -14,5 +14,12 @@ class FilesModel extends Model
     protected $deletedField  = 'f_deleted_at';
     protected $primaryKey = 'f_id';
 
-
+    public function get_all_for_assignment_id($assignment_id): array
+    {
+        return $this->asArray()
+            ->where(['file_assignments.assignment' => $assignment_id])
+            ->join("file_assignments", "file_assignments.id = files.f_id")
+            ->orderBy("f_created_at","DESC")
+            ->findAll();
+    }
 }

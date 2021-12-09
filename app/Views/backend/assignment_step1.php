@@ -44,7 +44,7 @@
                                     <label>Select Assignment to Duplicate</label>
                                     <select class="form-control select2" style="width: 100%;">
                                         <?php foreach($Assignments as $assignmnet){?>
-                                        <option value="<?=$assignmnet["a_id"];?>"><?=$assignment["a_name"];?></option>
+                                        <option value="<?=$assignmnet["a_id"];?>"><?=$assignmnet["a_name"];?></option>
                                         <?php } ?>
                                     </select>
                                 </div>

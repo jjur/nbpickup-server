@@ -14,5 +14,11 @@ class GradebooksModel extends Model
     protected $deletedField  = 'g_deleted_at';
     protected $primaryKey = 'g_id';
 
-
+    public function get_all_for_assignment_id($assignment_id): array
+    {
+        return $this->asArray()
+            ->where(['g_assignment' => $assignment_id])
+            ->orderBy("g_created_at","DESC")
+            ->findAll();
+    }
 }

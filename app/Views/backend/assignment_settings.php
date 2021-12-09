@@ -20,7 +20,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container">
-            <form method="post" action="<?= base_url("Assignments/settings/" . $id . "/next"); ?>">
+            <form method="post" action="<?= base_url("Assignments/settings/" . $id ); ?>">
                 <div class="row">
 
                     <div class="col-md-12">

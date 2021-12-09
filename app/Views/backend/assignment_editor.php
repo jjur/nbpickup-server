@@ -20,7 +20,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container">
-            <form method="post" action="<?= base_url("Assignments/create/".$id."/next"); ?>">
+            <form method="post" action="<?= base_url("Assignments/create/".$id.""); ?>">
                 <div class="row">
 
                     <div class="col-md-6">
@@ -31,25 +31,34 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="a_name"><?= lang("AssignmentEditor.name") ?></label>
-                                    <input type="text" class="form-control" id="a_name" name="a_name" value="<?= set_value('a_name', '') ?>">
+                                    <input type="text" class="form-control" id="a_name" name="a_name" value="<?= set_value('a_name', $assignment["a_name"] ?? "") ?>">
                                 </div>
                                 <div class="form-group">
                                     <label><?= lang("AssignmentEditor.description") ?></label>
                                     <textarea class="form-control" rows="3" name="a_description"
-                                              placeholder="(<?= lang("AssignmentEditor.optional") ?>)"><?= set_value('a_description', '') ?></textarea>
+                                              placeholder="(<?= lang("AssignmentEditor.optional") ?>)"><?= set_value('a_description', $assignment["a_description"] ?? "") ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label><?= lang("AssignmentEditor.programming_lang") ?></label>
                                     <select class="form-control select2" style="width: 100%;" name="a_code_lang">
-                                        <option value="1" <?= set_select('a_code_lang', '1', true) ?>>Python</option>
+                                        <option value="1" <?= set_select('a_code_lang', '1', isset($assignment["a_code_lang"]) && $assignment["a_code_lang"] == "1") ?>>Python</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label><?= lang("AssignmentEditor.language") ?></label>
                                     <select class="form-control select2" style="width: 100%;" name="a_lang">
-                                        <option value="EN" <?= set_select('a_lang', 'EN', true) ?>>English</option>
-                                        <option value="SK" <?= set_select('a_lang', 'SK', true) ?>>Slovak</option>
+                                        <option value="EN" <?= set_select('a_lang', 'EN', isset($assignment["a_lang"]) && $assignment["a_lang"] == "1") ?>>English</option>
+                                        <option value="SK" <?= set_select('a_lang', 'SK', isset($assignment["a_lang"]) && $assignment["a_lang"] == "1") ?>>Slovak</option>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label><?= lang("AssignmentEditor.deadline") ?></label>
+                                    <div class="input-group date" id="a_deadline" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#a_deadline" name="a_deadline" value="<?= set_value('a_deadline', $assignment["a_deadline"] ?? "") ?>"/>
+                                        <div class="input-group-append" data-target="#a_deadline" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -61,10 +70,11 @@
                                 <h3 class="card-title"><?= lang("AssignmentEditor.settings_box_title") ?></h3>
                             </div>
                             <div class="card-body">
+                                <?= var_dump($assignment);?>
                                 <!--<input type="checkbox" name="my-checkbox" checked data-bootstrap-switch>
                                 <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">-->
                                 <div class="icheck-primary">
-                                    <input type="checkbox" id="a_anonymous_sub" name="a_anonymous_sub">
+                                    <input type="checkbox" id="a_anonymous_sub" name="a_anonymous_sub" <?= set_checkbox("a_anonymous_sub", "",$assignment["a_anonymous_sub"]??true)?>>
                                     <label for="a_anonymous_sub">
                                         <?= lang("AssignmentEditor.allow_anonymous_sub") ?>:
                                     </label>
@@ -72,7 +82,7 @@
                                 </div>
 
                                 <div class="icheck-primary">
-                                    <input type="checkbox" id="a_unknown_users" name="a_unknown_users">
+                                    <input type="checkbox" id="a_unknown_users" name="a_unknown_users" <?= set_checkbox("a_unknown_users", "",isset($assignment["a_unknown_users"])?$assignment["a_unknown_users"]==1:true)?>>
                                     <label for="a_unknown_users">
                                         <?= lang("AssignmentEditor.allow_unknown_sub") ?>:
                                     </label>
@@ -80,7 +90,7 @@
                                 </div>
 
                                 <div class="icheck-primary">
-                                    <input type="checkbox" id="a_public" name="a_public">
+                                    <input type="checkbox" id="a_public" name="a_public" <?= set_checkbox("a_public", "",$assignment["a_public"]??false)?>>
                                     <label for="a_public">
                                         <?= lang("AssignmentEditor.make_public") ?>:
                                     </label>

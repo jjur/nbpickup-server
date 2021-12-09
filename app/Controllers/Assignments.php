@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 
 use App\Models\AssignmentsModel;
+use App\Models\FilesModel;
+use App\Models\GradebooksModel;
+use App\Models\TokensModel;
 
 const PAGE_TITLE = " | nbpickup | Dashboard";
 
@@ -39,7 +42,11 @@ class Assignments extends BaseController
      */
     public function create($id = -1)
     {
+        if ($id == "blank"){
+            $id = -1;
+        }
         global $DATA;
+
 
         # Load Libraries and helpers
         helper("form"); # Load form validation library
@@ -56,6 +63,7 @@ class Assignments extends BaseController
 
             // Validate data
             $validation->setRule('a_name', 'Assignment Title', 'required');
+            //$validation->setRule('a_anonymous_sub', 'Anonymous Submissions', 'numeric');
 
             # Run form validations
             $validation->withRequest($this->request);
@@ -65,19 +73,19 @@ class Assignments extends BaseController
                 $session->setFlashdata('operation_content', "Invalid data received: " . $validation->listErrors());
             } else {
 
-
+                // TODO Fix the issue with duplicated a_alias in the table
+                // TODO Script that will take care of making them always unique is required
                 // Colect data
                 $formdata = array(
                     'a_name' => $request->getVar("a_name", FILTER_SANITIZE_STRING),
-                    'a_alias' => $request->getVar("a_alias", FILTER_SANITIZE_STRING),
                     "a_description" => $request->getVar("a_description", FILTER_SANITIZE_STRING),
-                    "a_user" => $DATA["user"]->id,
+                    "a_owner" => $DATA["user"]->id,
                     "a_status" => $request->getVar("a_status", FILTER_SANITIZE_NUMBER_INT),
                     "a_code_lang" => $request->getVar("a_code_lang", FILTER_SANITIZE_NUMBER_INT),
                     "a_lang" => $request->getVar("a_lang", FILTER_SANITIZE_STRING),
                     "a_deadline" => $request->getVar("a_deadline", FILTER_SANITIZE_STRING),
-                    "a_anonymous_sub" => $request->getVar("a_anonymous_sub", FILTER_SANITIZE_NUMBER_INT),
-                    "a_unknown_users" => $request->getVar("a_unknown_users", FILTER_SANITIZE_NUMBER_INT),
+                    "a_anonymous_sub" => $request->getVar("a_anonymous_sub", FILTER_SANITIZE_STRING)=="on"?1:0,
+                    "a_unknown_users" => $request->getVar("a_unknown_users", FILTER_SANITIZE_STRING)=="on"?1:0,
                     "a_public" => $request->getVar("a_public", FILTER_SANITIZE_NUMBER_INT)
                 );
                 if ($id == -1) {
@@ -86,10 +94,15 @@ class Assignments extends BaseController
                     $formdata["a_alias"] = slug($formdata["a_name"] );
                     $id = $model_assignments->insert($formdata);
                 } else {
-                    $model_assignments->update($formdata);
+
+                    $model_assignments->update($id,$formdata);
                 }
-                redirect("Assignments/settings/" . $id);
+                return redirect()->to(base_url()."/Assignments/settings/" . $id."/");
             }
+        }else{
+            // Load assignment data
+            $DATA["assignment"] = $model_assignments->find($id);
+
         }
 
         // Load the form (empty or with data based on the Id
@@ -107,19 +120,53 @@ class Assignments extends BaseController
     {
         global $DATA;
         $DATA["id"] = $assignment_id;
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            return redirect()->to(base_url()."/Assignments/resources/" . $assignment_id."/");
+        }
+        $model_assignments = new AssignmentsModel();
+        $DATA["assignment"] = $model_assignments->find($assignment_id);
         echo view("backend/header");
         echo view("backend/assignment_settings", $DATA);
         return view('backend/footer');
     }
 
+    public function resources($assignment_id)
+    {
+        global $DATA;
+        $DATA["id"] = $assignment_id;
 
+        $model_assignments = new AssignmentsModel();
+        $DATA["assignment"] = $model_assignments->find($assignment_id);
+
+        $model_files = new FilesModel();
+        $model_gradebooks = new GradebooksModel();
+
+        $DATA["files"] = $model_files->get_all_for_assignment_id($assignment_id);
+        $DATA["gradebooks"] = $model_gradebooks->get_all_for_assignment_id($assignment_id);
+
+        echo view("backend/header");
+        #echo var_dump($DATA["files"]);
+        #echo var_dump($DATA["gradebooks"]);
+        echo view("backend/assignment_resources", $DATA);
+        return view('backend/footer');
+    }
+
+    /*
+     * Generates one-time tokens required for accessing authoring and grading binders.
+     */
+    public function get_token($assignment_id){
+        global $DATA;
+
+        $model_tokens = new TokensModel();
+
+        return $model_tokens->get_token($assignment_id);
+
+    }
 
 
     public function edit($assignment_id)
     {
-        echo view("backend/header");
-        echo view("backend/project_list");
-        return view('backend/footer');
+        $this->create($assignment_id);
     }
 
 }
