@@ -102,6 +102,25 @@
         timePickerIncrement: 30,
         locale: {
             format: 'MM/DD/YYYY hh:mm A'
-        }</script>
+        }
+    });
+</script>
+<script>
+    $(".binder_secure").click(function(e){
+        e.preventDefault();
+        jQuery.ajax({
+            type: "GET",
+            async: true,
+            dataType: "json",
+            url: "<?= base_url("Assignments/get_token/". $id??"0");?>",
+            data: "",
+            success: function(response){
+                navigator.clipboard.writeText(response["token"]);
+                prompt("Please copy this token and paste it inside of Binder to authenticate your session. This token is valid for next 6 hours. Hint: Press CTRL+C", response["token"]);
+                window.location =  $(e.target.parentElement).attr('href');
+            }
+        });
+        });
+</script>
 </body>
 </html>

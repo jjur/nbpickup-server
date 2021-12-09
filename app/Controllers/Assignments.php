@@ -148,7 +148,7 @@ class Assignments extends BaseController
         #echo var_dump($DATA["files"]);
         #echo var_dump($DATA["gradebooks"]);
         echo view("backend/assignment_resources", $DATA);
-        return view('backend/footer');
+        return view('backend/footer', $DATA);
     }
 
     /*
@@ -159,7 +159,10 @@ class Assignments extends BaseController
 
         $model_tokens = new TokensModel();
 
-        return $model_tokens->get_token($assignment_id);
+        $token =  $model_tokens->get_token($assignment_id, $DATA["user"]->id);
+        $output["token"] = $token;
+
+        return json_encode($output);
 
     }
 
