@@ -41,9 +41,9 @@
                         <th style="width: 40%">
                             Assignment Name
                         </th>
-                        <th>
+                        <!--<th>
                             Received Submissions
-                        </th>
+                        </th>-->
                         <th style="width: 8%" class="text-center">
                             Status
                         </th>
@@ -70,7 +70,7 @@
                                 Created <?=$assignment["a_created_at"];?>
                             </small>
                         </td>
-                        <td class="project_progress">
+                        <!--<td class="project_progress">
                             <div class="progress progress-sm">
                                 <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
                                 </div>
@@ -78,7 +78,7 @@
                             <small>
                                 57% Complete
                             </small>
-                        </td>
+                        </td>-->
                         <td class="project-state">
                             <span class="badge badge-success"><?= $assignment["a_status"];?></span>
                         </td>
@@ -113,7 +113,7 @@
                                 Created 28.10.2021
                             </small>
                         </td>
-                        <td class="project_progress">
+                        <!--<td class="project_progress">
                             <div class="progress progress-sm">
                                 <div class="progress-bar bg-green" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                 </div>
@@ -121,7 +121,7 @@
                             <small>
                                 0% Complete
                             </small>
-                        </td>
+                        </td>-->
                         <td class="project-state">
                             <span class="badge badge-danger">Draft</span>
                         </td>

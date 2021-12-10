@@ -36,6 +36,7 @@
                                 <p><?= lang("AssignmentSettings.card_submit_jupyter_instructions")?></p>
 
                                 <textarea id="codeMirrorDemo" style="height: auto;" class="">
+!pip install nbpickup
 import nbpickup
 email = "<?= lang("AssignmentSettings.insert_email_caps")?>"
 nbpickup.submit_ipynb("ASSIGNMENTID",email)
@@ -63,9 +64,13 @@ nbpickup.submit_ipynb("ASSIGNMENTID",email)
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <!-- /.card-body -->
+                            <!-- Loading (remove the following to stop the loading)-->
+                            <div class="overlay dark">
+                                <i class="fas fa-2x fa-cog"></i>
+                            </div>
+                            <!-- end loading -->
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -95,6 +100,11 @@ nbpickup.submit_ipynb("ASSIGNMENTID",email)
                                 </div>
                             </div>
                             <!-- /.card-body -->
+                            <!-- Loading (remove the following to stop the loading)-->
+                            <div class="overlay dark">
+                                <i class="fas fa-2x fa-cog"></i>
+                            </div>
+                            <!-- end loading -->
                         </div>
                     </div>
                 </div>

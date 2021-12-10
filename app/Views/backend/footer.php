@@ -112,12 +112,12 @@
             type: "GET",
             async: true,
             dataType: "json",
-            url: "<?= base_url("Assignments/get_token/". $id??"0");?>",
+            url: "<?= base_url("Assignments/get_token/". ($id??"0"));?>",
             data: "",
             success: function(response){
                 navigator.clipboard.writeText(response["token"]);
                 prompt("Please copy this token and paste it inside of Binder to authenticate your session. This token is valid for next 6 hours. Hint: Press CTRL+C", response["token"]);
-                window.location =  $(e.target.parentElement).attr('href');
+                window.open($(e.target.parentElement).attr('href'), '_blank').focus();
             }
         });
         });

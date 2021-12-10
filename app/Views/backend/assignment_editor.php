@@ -70,7 +70,6 @@
                                 <h3 class="card-title"><?= lang("AssignmentEditor.settings_box_title") ?></h3>
                             </div>
                             <div class="card-body">
-                                <?= var_dump($assignment);?>
                                 <!--<input type="checkbox" name="my-checkbox" checked data-bootstrap-switch>
                                 <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">-->
                                 <div class="icheck-primary">
@@ -100,7 +99,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <!--<div class="col-md-6">
                         <div class="card card-info">
                             <div class="card-header">
                                 <h3 class="card-title"><?= lang("AssignmentEditor.gradebook_box_title") ?></h3>
@@ -119,7 +118,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Gradebook table -->
+                                <!-- Gradebook table
                                 <b><?= lang("AssignmentEditor.gradebook_history")?>:</b>
                                 <div class="table-responsive">
                                     <table class="table table-hover text-nowrap">
@@ -158,9 +157,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <div class="col-md-6">
+                    <!--<div class="col-md-6">
                         <div class="card card-info">
                             <div class="card-header">
                                 <h3 class="card-title"><?= lang("AssignmentEditor.files_box_title") ?></h3>
@@ -233,7 +232,7 @@
                                 </div>
 
 
-                                <!-- TODO table of all upladed files -->
+                                <!-- TODO table of all upladed files
                                 <div class="table-responsive">
                                     <table class="table table-hover text-nowrap ">
                                         <thead>
@@ -267,7 +266,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
 
                 </div>
