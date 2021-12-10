@@ -20,6 +20,7 @@ class Filters extends BaseConfig
 		'toolbar'  => DebugToolbar::class,
 		'honeypot' => Honeypot::class,
         'checkLogin' => \App\Filters\CheckLogin::class,
+        "AuthAPI"   => \App\Filters\AuthAPI::class,
 	];
 
 	/**
@@ -60,6 +61,7 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
     public $filters = [
-        'checkLogin' => ['before' => ['Dashboard*',"Assignments*"]]
+        'checkLogin' => ['before' => ['Dashboard*',"Assignments*"]],
+        'AuthAPI' => ['before' => ['API*']]
     ];
 }
