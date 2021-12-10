@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class FileAssignmentModel extends Model
+class FileSubmissionModel extends Model
 {
-    protected $table = 'file_assignments';
-    protected $allowedFields = ['file', "assignment", "private"];
+    protected $table = 'file_submission';
+    protected $allowedFields = ['file', "submission", "private"];
     protected $useTimestamps = false;
     protected $primaryKey = 'id';
 

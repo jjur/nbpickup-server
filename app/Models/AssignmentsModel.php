@@ -22,4 +22,8 @@ class AssignmentsModel extends Model
             ->findAll();
     }
 
+    public function get_id_by_alias($assingment_alias){
+        return $this->asArray()->where(["a_alias" => $assingment_alias])->first();
+    }
+
 }

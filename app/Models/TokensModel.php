@@ -18,8 +18,7 @@ class TokensModel extends Model
 
 
         // Generate new user token
-        $token = base64_encode(random_bytes(64));
-
+        $token = bin2hex(random_bytes(32));
 
         $data = array(
             "t_token" => $token,
@@ -30,7 +29,13 @@ class TokensModel extends Model
         // Register new token in database
         $this->insert($data);
         return $token;
+    }
 
+    public function find_token($token){
+
+        return $this->asArray()
+            ->where(["t_token"=> $token])
+            ->first();
 
     }
 }
