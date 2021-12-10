@@ -1,6 +1,6 @@
 <?php
     return [
-        'page_title' => 'Assignemnt Title',
+        'page_title' => 'Assignment Title',
         'details_box_title' => 'Assignment Details',
         'name' => 'Assignment Title',
         'description' => 'Description',
