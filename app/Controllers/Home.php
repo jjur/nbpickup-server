@@ -16,7 +16,7 @@ class Home extends BaseController
 
     public function register()
     {
-        global $DATA;
+        $DATA["hi"] = "Just making sure data is not empty";
         helper("form"); # Load form validation library
         $validation = \Config\Services::validation();
 
