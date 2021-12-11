@@ -7,10 +7,11 @@
                             <h2 class="text-info"><?php echo lang('Auth.register_heading');?></h2>
                             <p><?php echo lang('Auth.register_subheading');?></p>
                         </div>
-                        <form>
-                            <div class="mb-3"><label class="form-label" for="name"><?= lang('Auth.register_name')?></label><input class="form-control item" type="text" id="name"></div>
-                            <div class="mb-3"><label class="form-label" for="password"><?= lang('Auth.register_identity_label')?></label><input class="form-control item" type="password" id="password"></div>
-                            <div class="mb-3"><label class="form-label" for="email"><?= lang('Auth.register_password_label')?></label><input class="form-control item" type="email" id="email"></div>
+                        <form method="post" action="<?=base_url("home/register");?>">
+                            <div><?=$message??"";?></div>
+                            <div class="mb-3"><label class="form-label" for="name"><?= lang('Auth.register_name')?></label><input class="form-control item" name="name" type="text" id="name"></div>
+                            <div class="mb-3"><label class="form-label" for="email"><?= lang('Auth.register_identity_label')?></label><input class="form-control item" name="email" type="email" id="password"></div>
+                            <div class="mb-3"><label class="form-label" for="password"><?= lang('Auth.register_password_label')?></label><input class="form-control item" name="password" type="password" id="password"></div>
                             <button class="btn btn-primary" type="submit"><?= lang('Auth.register_submit_btn')?></button>
                             <!-- TODO: Login link-->
                         </form>
