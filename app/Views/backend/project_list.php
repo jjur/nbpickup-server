@@ -83,12 +83,12 @@
                             <span class="badge badge-success"><?= $assignment["a_status"];?></span>
                         </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="<?= base_url("/Assignments/view/".$assignment["a_id"]);?>">
+                            <a class="btn btn-primary btn-sm" href="<?= base_url("/Assignments/resources/".$assignment["a_id"]);?>">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="<?= base_url("/Assignments/edit/".$assignment["a_id"]);?>">
+                            <a class="btn btn-info btn-sm" href="<?= base_url("/Assignments/create/".$assignment["a_id"]);?>">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
@@ -100,7 +100,7 @@
                             </a>
                         </td>
                     </tr><?php } ?>
-                    <tr>
+                    <!--<tr>
                         <td>
                             #
                         </td>
@@ -121,7 +121,7 @@
                             <small>
                                 0% Complete
                             </small>
-                        </td>-->
+                        </td>
                         <td class="project-state">
                             <span class="badge badge-danger">Draft</span>
                         </td>
@@ -142,7 +142,7 @@
                                 Delete
                             </a>
                         </td>
-                    </tr>
+                    </tr>-->
                     </tbody>
                 </table>
             </div>
