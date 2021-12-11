@@ -36,15 +36,18 @@ class AuthAPI implements FilterInterface
                 }else{
                     // Expired
                     echo "Expired.";
+                    http_response_code(410);
                     die(410);
                 }
             }else{
                 // Access token not found
-                echo "Token Not Recognized.";
+                echo "Error: Token Not Recognized.";
+                http_response_code(401);
                 die(401);
             }
         }else{
-            echo "Token not provided.";
+            echo "Error: Token not provided.";
+            http_response_code(401);
             die(401);
         }
 

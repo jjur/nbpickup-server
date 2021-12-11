@@ -17,4 +17,8 @@ class FileAssignmentModel extends Model
                      "assignment" => $assignment_id])
             ->first();
     }
+
+    public function list_all_by_assignment($assignemnt_id){
+        return $this->asArray()->where(["assignment" => $assignemnt_id])->findAll();
+    }
 }

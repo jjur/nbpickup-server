@@ -12,7 +12,7 @@ use App\Models\TokensModel;
 const PAGE_TITLE = " | nbpickup | Dashboard";
 
 
-class API extends BaseController
+class Api extends BaseController
 {
     public function index()
     {
@@ -27,7 +27,24 @@ class API extends BaseController
     public function auth()
     {
         global $DATA;
-        return $DATA["assignment"];
+        return json_encode($DATA["assignment"]);
+    }
+
+
+    public function list_files()
+    {
+
+        global $DATA;
+        // Making sure we are having access to the file
+        $model_files = new FileAssignmentModel();
+        $files = $model_files->list_all_by_assignment($DATA["assignment"]["a_id"]);
+        if ($files) {
+            echo json_encode($files);
+            die();
+        }else{
+            echo json_encode(array());
+            die();
+        }
     }
 
     /*
@@ -48,6 +65,7 @@ class API extends BaseController
                 download_file($file);
             } else {
                 echo "Error: Token not matched for this file";
+                http_response_code(401);
                 die(401);
             }
         }
@@ -83,7 +101,7 @@ class API extends BaseController
 
         $junction_record = array(
             "file" => $file_id,
-            "assignment" => $this->request->getVar("assingment"),
+            "assignment" => $this->request->getVar("assignment"),
             "private"    => $this->request->getVar("source")
         );
         $model_files_assignments->insert($junction_record);
@@ -101,6 +119,8 @@ class API extends BaseController
             "f_hash" => hash("md5",$path),
             "f_filename_internal" => $path
         );
+
+        // TODO: Check if we are having write access to this assignment
         $file_id = $model_files->update($file_id,$file_record);
         echo $file_id;
         die(200);

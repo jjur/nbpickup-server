@@ -35,7 +35,7 @@ class Filters extends BaseConfig
 			// 'csrf',
 		],
 		'after'  => [
-			'toolbar',
+			//'toolbar',
 			// 'honeypot',
 		],
 	];
@@ -61,6 +61,7 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
     public $filters = [
+        "toolbar" => ["after" => ["Dashboard*","Home*"]],
         'checkLogin' => ['before' => ['Dashboard*',"Assignments*"]],
         'AuthAPI' => ['before' => ['API*']]
     ];
