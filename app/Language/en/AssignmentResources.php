@@ -19,7 +19,7 @@
         "preview_box_title" =>"Preview Assignment for Students",
         "preview_info" => "TODO",
 
-        'save' => 'Save & Next Page',
+        'save' => 'Next Page',
         'back' => 'Back',
         #'' => '',
     ];
