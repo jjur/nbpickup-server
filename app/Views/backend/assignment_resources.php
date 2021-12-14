@@ -59,6 +59,9 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                <a class="btn btn-primary" href="<?= base_url("Assignments/download_zip/".$id."") ;?>">Download Student files (ZIP)</a>
+                            </div>
                         </div>
                     </div>
 
