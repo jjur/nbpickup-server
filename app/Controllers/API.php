@@ -56,12 +56,18 @@ class Api extends BaseController
         global $DATA;
         // Making sure we are having access to the file
         $model_files = new FilesModel();
+
         $file = $model_files->find($file_id);
+
         if ($file) {
+
             // Check the assignment the file is associated with
             $model_file_assignment = new FileAssignmentModel();
+
             $junction = $model_file_assignment->check_relationship($file_id, $DATA["assignment"]["a_id"]);
+
             if ($junction) {
+
                 download_file($file);
             } else {
                 echo "Error: Token not matched for this file";
@@ -102,7 +108,7 @@ class Api extends BaseController
         $junction_record = array(
             "file" => $file_id,
             "assignment" => $this->request->getVar("assignment"),
-            "private"    => $this->request->getVar("source")
+            "private"    => $this->request->getVar("private")
         );
         $model_files_assignments->insert($junction_record);
         echo $file_id;
@@ -117,7 +123,8 @@ class Api extends BaseController
 
         $file_record = array(
             "f_hash" => hash("md5",$path),
-            "f_filename_internal" => $path
+            "f_filename_internal" => $path,
+            "f_filename_original" => $this->request->getVar("filename")
         );
 
         // TODO: Check if we are having write access to this assignment
@@ -133,16 +140,14 @@ class Api extends BaseController
 function download_file($file)
 {
     $attachment_location = WRITEPATH . "uploads/" . $file["f_filename_internal"];
-
     if (file_exists($attachment_location)) {
-
         // Setup headers for file download
         header($_SERVER["SERVER_PROTOCOL"] . " 200 OK");
         header("Cache-Control: public"); // needed for internet explorer
         header("Content-Type: application/zip");
         header("Content-Transfer-Encoding: Binary");
         header("Content-Length:" . filesize($attachment_location));
-        header("Content-Disposition: attachment; filename=" . $file["f_filename_external"]);
+        header("Content-Disposition: attachment; filename=" . $file["f_filename_original"]);
         readfile($attachment_location);
         die();
     } else {
