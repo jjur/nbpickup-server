@@ -18,7 +18,7 @@ class FilesModel extends Model
     {
         return $this->asArray()
             ->where(['file_assignments.assignment' => $assignment_id])
-            ->join("file_assignments", "file_assignments.id = files.f_id")
+            ->join("file_assignments", "file_assignments.file = files.f_id")
             ->orderBy("f_created_at","DESC")
             ->findAll();
     }

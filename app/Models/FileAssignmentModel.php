@@ -21,4 +21,7 @@ class FileAssignmentModel extends Model
     public function list_all_by_assignment($assignemnt_id){
         return $this->asArray()->where(["assignment" => $assignemnt_id])->findAll();
     }
+    public function list_public_by_assignment($assignemnt_id){
+        return $this->asArray()->where(["assignment" => $assignemnt_id,"private"=>0])->findAll();
+    }
 }

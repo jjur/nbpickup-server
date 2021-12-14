@@ -4,9 +4,13 @@ namespace App\Controllers;
 
 
 use App\Models\AssignmentsModel;
+use App\Models\FileAssignmentModel;
 use App\Models\FilesModel;
 use App\Models\GradebooksModel;
 use App\Models\TokensModel;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use ZipArchive;
 
 const PAGE_TITLE = " | nbpickup | Dashboard";
 
@@ -172,6 +176,71 @@ class Assignments extends BaseController
         $this->create($assignment_id);
     }
 
+    public function download_zip($assignment_id){
+        $zip = new ZipArchive();
+        $model_assignments = new AssignmentsModel();
+        $model_file = new FilesModel();
+        $model_files = new FileAssignmentModel();
+
+
+        $assignment = $model_assignments->find($assignment_id);
+
+        $directory = WRITEPATH . "temp/". $assignment["a_alias"]."/";
+        $destination = $assignment["a_alias"].'.zip';
+        # Create directory if not exits.
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }else{
+            # empty whole directory
+            $dir = $directory;
+            $it = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
+            $files = new RecursiveIteratorIterator($it,
+                RecursiveIteratorIterator::CHILD_FIRST);
+            foreach($files as $file) {
+                if ($file->isDir()){
+                    rmdir($file->getRealPath());
+                } else {
+                    unlink($file->getRealPath());
+                }
+            }
+            rmdir($dir);
+            mkdir($directory, 0777, true);
+        }
+
+
+        $files = $model_files->list_public_by_assignment($assignment["a_id"]);
+
+        foreach ($files as $file) {
+            $file_details = $model_file->find($file["file"]);
+
+            $source = WRITEPATH . "uploads/" . $file_details["f_filename_internal"];
+            copy($source, $directory.$file_details["f_filename_original"]);
+        }
+
+        Zip($directory,$destination);
+
+        if(file_exists($destination)){
+            //Set Headers:
+            header('Pragma: public');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($destination)) . ' GMT');
+            header('Content-Type: application/force-download');
+            header('Content-Disposition: inline; filename="'.$destination.'"');
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($destination));
+            header('Connection: close');
+            readfile($destination);
+            exit();
+        }
+
+        if(file_exists($destination)){
+            unlink($destination);
+
+        }
+
+    }
+
 }
 
 /*
@@ -183,4 +252,43 @@ function slug($z){
     $z = preg_replace('/[^a-z0-9 -]+/', '', $z);
     $z = str_replace(' ', '-', $z);
     return trim($z, '-');
+}
+
+function Zip($source, $destination)
+{
+    if (!extension_loaded('zip') || !file_exists($source)) {
+        return false;
+    }
+
+    $zip = new ZipArchive();
+    if (!$zip->open($destination, ZIPARCHIVE::CREATE)) {
+        return false;
+    }
+
+    $source = str_replace('\\', '/', realpath($source));
+
+    if (is_dir($source) === true)
+    {
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+
+        foreach ($files as $file)
+        {
+            $file = str_replace('\\', '/', realpath($file));
+
+            if (is_dir($file) === true)
+            {
+                $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+            }
+            else if (is_file($file) === true)
+            {
+                $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+            }
+        }
+    }
+    else if (is_file($source) === true)
+    {
+        $zip->addFromString(basename($source), file_get_contents($source));
+    }
+
+    return $zip->close();
 }
