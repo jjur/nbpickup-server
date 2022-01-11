@@ -60,7 +60,9 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-primary" href="<?= base_url("Assignments/download_zip/".$id."") ;?>">Download Student files (ZIP)</a>
+                                <a class="btn btn-primary" href="<?= base_url("Assignments/download_zip/".$id."") ;?>">Download Student (Release) files (ZIP)</a>
+                                <a class="btn btn-primary" href="<?= base_url("Assignments/download_teacher_zip/".$id."") ;?>">Download Teacher (Source) files (ZIP)</a>
+
                             </div>
                         </div>
                     </div>

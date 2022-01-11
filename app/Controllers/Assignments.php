@@ -241,6 +241,68 @@ class Assignments extends BaseController
 
     }
 
+    public function download_teacher_zip($assignment_id){
+        $zip = new ZipArchive();
+        $model_assignments = new AssignmentsModel();
+        $model_file = new FilesModel();
+        $model_files = new FileAssignmentModel();
+
+
+        $assignment = $model_assignments->find($assignment_id);
+
+        $directory = WRITEPATH . "temp/". $assignment["a_alias"]."/";
+        $destination = $assignment["a_alias"].'.zip';
+        # Create directory if not exits.
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }else{
+            # empty whole directory
+            $dir = $directory;
+            $it = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
+            $files = new RecursiveIteratorIterator($it,
+                RecursiveIteratorIterator::CHILD_FIRST);
+            foreach($files as $file) {
+                if ($file->isDir()){
+                    rmdir($file->getRealPath());
+                } else {
+                    unlink($file->getRealPath());
+                }
+            }
+            rmdir($dir);
+            mkdir($directory, 0777, true);
+        }
+
+
+        $files = $model_files->list_private_by_assignment($assignment["a_id"]);
+
+        foreach ($files as $file) {
+            $file_details = $model_file->find($file["file"]);
+
+            $source = WRITEPATH . "uploads/" . $file_details["f_filename_internal"];
+            copy($source, $directory.$file_details["f_filename_original"]);
+        }
+
+        Zip($directory,$destination);
+
+        if(file_exists($destination)){
+            //Set Headers:
+            header('Pragma: public');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($destination)) . ' GMT');
+            header('Content-Type: application/force-download');
+            header('Content-Disposition: inline; filename="'.$destination.'"');
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($destination));
+            header('Connection: close');
+            readfile($destination);
+            exit();
+        }
+
+        if(file_exists($destination)){
+            unlink($destination);
+        }
+    }
 }
 
 /*
