@@ -45,8 +45,8 @@
                                         <tbody>
                                         <?php foreach ($files as $file){ ?>
                                         <tr>
-                                            <td><?= $file["f_filename_original"];?></td>
-                                            <td><?= $file["f_filepath"];?></td>
+                                            <td><?= $file["f_filename_original"];?><?= ($file["private"]==0)?'<span class="float-right badge bg-primary">Students</span>':"";?></td>
+                                            <td><?= str_replace("/home/jovyan","",$file["f_filepath"]);?></td>
                                             <td>-- kB</td>
                                             <td class="text-right py-0 align-middle">
                                                 <div class="btn-group btn-group-sm">
