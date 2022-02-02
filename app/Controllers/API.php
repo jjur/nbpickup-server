@@ -41,7 +41,7 @@ class Api extends BaseController
         if ($files) {
             echo json_encode($files);
             die();
-        }else{
+        } else {
             echo json_encode(array());
             die();
         }
@@ -93,42 +93,65 @@ class Api extends BaseController
     {
         $model_files = new FilesModel();
         $model_files_assignments = new FileAssignmentModel();
+        $model_gradebook = new GradebooksModel();
+
+        // Ignore checkpoint files
+        if (strpos($this->request->getVar("filename"), "checkpoint")) {
+            echo 0;
+            die(200);
+        }
 
         // Upload and store
         $path = $this->request->getFile('file')->store();
 
         $file_record = array(
-            "f_hash" => hash("md5",$path),
+            "f_hash" => hash("md5", $path),
             "f_filename_internal" => $path,
             "f_filename_original" => $this->request->getVar("filename"),
-            "f_filepath" => $this->request->getVar("path")
+            "f_filepath" => $this->request->getVar("path"),
+            "f_filesize" => filesize($path)
         );
         $file_id = $model_files->insert($file_record);
 
-        $junction_record = array(
-            "file" => $file_id,
-            "assignment" => $this->request->getVar("assignment"),
-            "private"    => $this->request->getVar("private")
-        );
-        $model_files_assignments->insert($junction_record);
+
+        # Check what is the type of file
+        $type = $this->request->getVar("filetype") ?: "file";
+
+        if ($type == "file") {
+            $junction_record = array(
+                "file" => $file_id,
+                "assignment" => $this->request->getVar("assignment"),
+                "private" => $this->request->getVar("private")
+            );
+            $model_files_assignments->insert($junction_record);
+        } elseif ($type == "gradebook") {
+            $junction_record = array(
+                "g_file" => $file_id,
+                "g_assignment" => $this->request->getVar("assignment"),
+                "g_stats_assignments" => $this->request->getVar("stats_assignments") ?: -1,
+                "g_stats_students" => $this->request->getVar("stats_students") ?: -1
+            );
+            $model_gradebook->insert($junction_record);
+        }
+
         echo $file_id;
         die(200);
     }
 
-    public function update_file($file_id){
+    public function update_file($file_id)
+    {
         $model_files = new FilesModel();
 
         // Upload and store
         $path = $this->request->getFile('file')->store();
-
         $file_record = array(
-            "f_hash" => hash("md5",$path),
+            "f_hash" => hash("md5", $path),
             "f_filename_internal" => $path,
-            "f_filename_original" => $this->request->getVar("filename")
+            "f_filename_original" => $this->request->getVar("filename"),
+            "f_filesize" => filesize($path)
         );
-
         // TODO: Check if we are having write access to this assignment
-        $file_id = $model_files->update($file_id,$file_record);
+        $file_id = $model_files->update($file_id, $file_record);
         echo $file_id;
         die(200);
     }

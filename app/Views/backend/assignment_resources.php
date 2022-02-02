@@ -47,7 +47,7 @@
                                         <tr>
                                             <td><?= $file["f_filename_original"];?><?= ($file["private"]==0)?'<span class="float-right badge bg-primary">Students</span>':"";?></td>
                                             <td><?= str_replace("/home/jovyan","",$file["f_filepath"]);?></td>
-                                            <td>-- kB</td>
+                                            <td><?= round($file["f_filesize"]/1000,2);?> kB</td>
                                             <td class="text-right py-0 align-middle">
                                                 <div class="btn-group btn-group-sm">
                                                     <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
@@ -111,7 +111,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th><?= lang("AssignmentResources.timestamp") ?></th>
-                                            <th><?= lang("AssignmentResources.size") ?></th>
+                                            <!--<th><?= lang("AssignmentResources.size") ?></th>-->
                                             <th><?= lang("AssignmentResources.additional_details") ?></th>
                                             <th></th>
                                         </tr>
@@ -121,8 +121,8 @@
                                         <tr>
                                             <td><?= $gradebook["g_id"];?></td>
                                             <td><?= $gradebook["g_created_at"];?></td>
-                                            <td>-- kB</td>
-                                            <td>A: <?= $gradebook["g_assignments"];?>, S: <?= $gradebook["g_students"];?></td>
+                                            <!--<td> kB</td>-->
+                                            <td>A: <?= $gradebook["g_stats_assignments"];?>, S: <?= $gradebook["g_stats_students"];?></td>
                                             <td class="text-right py-0 align-middle">
                                                 <div class="btn-group btn-group-sm">
                                                     <a href="#<?= $gradebook["g_id"];?>" class="btn btn-success"><i class="fas fa-check"></i> Active</a>
