@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class GradebooksModel extends Model
 {
     protected $table = 'gradebooks';
-    protected $allowedFields = ['g_assignment', "g_file", "g_assignments", "g_students"];
+    protected $allowedFields = ['g_assignment', "g_file", "g_stats_assignments", "g_stats_students"];
     protected $useTimestamps = true;
     protected $createdField  = 'g_created_at';
     protected $updatedField  = 'g_updated_at';
