@@ -109,7 +109,7 @@ class Api extends BaseController
             "f_filename_internal" => $path,
             "f_filename_original" => $this->request->getVar("filename"),
             "f_filepath" => $this->request->getVar("path"),
-            "f_filesize" => filesize($path)
+            "f_filesize" => filesize( WRITEPATH . "uploads/" . $path)
         );
         $file_id = $model_files->insert($file_record);
 
@@ -133,7 +133,6 @@ class Api extends BaseController
             );
             $model_gradebook->insert($junction_record);
         }
-
         echo $file_id;
         die(200);
     }
@@ -148,7 +147,7 @@ class Api extends BaseController
             "f_hash" => hash("md5", $path),
             "f_filename_internal" => $path,
             "f_filename_original" => $this->request->getVar("filename"),
-            "f_filesize" => filesize($path)
+            "f_filesize" => filesize( WRITEPATH . "uploads/" . $path)
         );
         // TODO: Check if we are having write access to this assignment
         $file_id = $model_files->update($file_id, $file_record);
