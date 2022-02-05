@@ -30,12 +30,55 @@
 <!-- CodeMirror -->
 <script src="<?= base_url(); ?>/assets_admin/plugins/codemirror/codemirror.js"></script>
 <script src="<?= base_url(); ?>/assets_admin/plugins/codemirror/mode/python/python.js"></script>
+
+<script src="<?= base_url(); ?>/assets_admin/plugins/moment/moment.min.js"></script>
+<script src="<?= base_url(); ?>/assets_admin/plugins/inputmask/jquery.inputmask.min.js"></script>
+
+<script src="<?= base_url(); ?>/assets_admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
 <script>
     $("input[data-bootstrap-switch]").each(function(){
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     })</script>
-
 <script>
+    $(function () {
+        // CodeMirror
+        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "python",
+            theme: "monokai"
+        }).setSize(null,110);
+    })
+</script>
+<script>
+    $(function () {
+        //Date and time picker
+        $('#a_deadline').datetimepicker({ icons: { time: 'far fa-clock' } });
+
+
+    })
+
+
+
+
+</script>
+<script>
+    $(".binder_secure").click(function(e){
+        e.preventDefault();
+        jQuery.ajax({
+            type: "GET",
+            async: true,
+            dataType: "json",
+            url: "<?= base_url("Assignments/get_token/". ($id??"0"));?>",
+            data: "",
+            success: function(response){
+                navigator.clipboard.writeText(response["token"]);
+                prompt("Please copy this token and paste it inside of Binder to authenticate your session. This token is valid for next 6 hours. Hint: Press CTRL+C", response["token"]);
+                window.open($(e.target.parentElement).attr('href'), '_blank').focus();
+            }
+        });
+        });
+</script>
+<!-- <script>
     // DropzoneJS Demo Code Start
     Dropzone.autoDiscover = false
 
@@ -88,39 +131,6 @@
         myDropzone.removeAllFiles(true)
     }
     // DropzoneJS Demo Code End
-</script><script>
-    $(function () {
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-            mode: "python",
-            theme: "monokai"
-        }).setSize(null,110);
-    })
-</script>
-<script>$('#a_deadline').daterangepicker({
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-            format: 'MM/DD/YYYY hh:mm A'
-        }
-    });
-</script>
-<script>
-    $(".binder_secure").click(function(e){
-        e.preventDefault();
-        jQuery.ajax({
-            type: "GET",
-            async: true,
-            dataType: "json",
-            url: "<?= base_url("Assignments/get_token/". ($id??"0"));?>",
-            data: "",
-            success: function(response){
-                navigator.clipboard.writeText(response["token"]);
-                prompt("Please copy this token and paste it inside of Binder to authenticate your session. This token is valid for next 6 hours. Hint: Press CTRL+C", response["token"]);
-                window.open($(e.target.parentElement).attr('href'), '_blank').focus();
-            }
-        });
-        });
-</script>
+</script>-->
 </body>
 </html>

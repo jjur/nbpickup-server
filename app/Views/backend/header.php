@@ -25,6 +25,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="<?= base_url(); ?>/assets/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
