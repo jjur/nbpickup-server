@@ -23,22 +23,27 @@ class StudentAPI extends BaseController
         return redirect()->to('/');
     }
 
-    /*
-     * Validates token and returns metadata about assignment
-     *
-     * Note that validation is automatically done with Filter
-     */
-    public function submit_assingment($assingment_alias)
+
+    public function submit_one($assingment_alias)
     {
+        /*
+         * Function to handle universal assingment file submissions
+         */
+
         global $DATA;
 
+        // Initialization of modules
         $email = $this->request->getVar("email");
         $file  = $this->request->getFile('file');
-        $filepath = $file->store();
-        $filename = $file->getName();
+
+        // Validate file
         if (! $file->isValid()) {
             throw new \RuntimeException($file->getErrorString().'('.$file->getError().')');
         }
+
+        // Save File
+        $filepath = $file->store();
+        $filename = $file->getName();
 
         $model_assigments = new AssignmentsModel();
         $assignment_id = $model_assigments->get_id_by_alias($assingment_alias);
@@ -69,7 +74,7 @@ class StudentAPI extends BaseController
             $sub_id = $model_submissions->insert($submission_data);
 
             $file_data = array(
-                "f_hash" => hash_file("md5",$filepath),
+                "f_hash" => hash_file("md5",WRITEPATH . "uploads/" .$filepath),
                 "f_filename_internal" => $filepath,
                 "f_filename_original" => $filename,
                 "f_filepath" => "",
@@ -79,7 +84,7 @@ class StudentAPI extends BaseController
 
             $junction_data = array(
                 "file" => $file_id,
-                "assignment" => $assignment_id
+                "submission" => $sub_id
             );
             return $model_file_submissions->insert($junction_data);
 
