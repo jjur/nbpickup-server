@@ -21,7 +21,7 @@
                     <small>Submitting as <?=$student_email??"anonymous";?> for <?= $assignment_code??"Err";?>.</small>
                 </div>
                 <div class="col-sm-4">
-                    <img src="<?=base_url("/assets/img/logo_no_margin.svg");?>" style="width: 100%;max-height: 80px">
+                    <img src="<?=base_url("/assets/img/logo_no_margin.svg");?>" style="width: 100%;max-height: 70px;margin-top:15px">
                 </div>
             </div>
             </form>
