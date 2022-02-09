@@ -94,8 +94,8 @@ if nbpickup.set_email(email):
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-7"><p><?= lang("AssignmentSettings.card_submit_web_instructions")?></p></div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-6"><p><?= lang("AssignmentSettings.card_submit_web_instructions")?></p></div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="a_name"><?= lang("AssignmentSettings.submission_url") ?></label>
                                             <input type="text" class="form-control" id="a_name" name="a_name" value="https://nbpick.org/student/submit/<?=$assignment["a_name"];?>">
