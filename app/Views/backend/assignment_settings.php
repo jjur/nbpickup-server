@@ -73,10 +73,11 @@
                                 <p><?= lang("AssignmentSettings.card_submit_jupyter_instructions")?></p>
 
                                 <textarea id="codeMirrorDemo" style="height: auto;" class="">
-!pip install nbpickup
-import nbpickup
+# !pip install nbpickup  # Uncomment when used outside of binder
+import nbpickup.submissions as nbpickup
 email = "<?= lang("AssignmentSettings.insert_email_caps")?>"
-nbpickup.submit_ipynb("ASSIGNMENTID",email)
+if nbpickup.set_email(email):
+    nbpickup.submit_ipynb("<?=$assignment["a_name"];?>")
               </textarea>
                             </div>
                             <!-- /.card-body -->
@@ -97,17 +98,12 @@ nbpickup.submit_ipynb("ASSIGNMENTID",email)
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="a_name"><?= lang("AssignmentSettings.submission_url") ?></label>
-                                            <input type="text" class="form-control" id="a_name" name="a_name" value="https://nbpick.org/submission/...">
+                                            <input type="text" class="form-control" id="a_name" name="a_name" value="https://nbpick.org/student/submit/<?=$assignment["a_name"];?>">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
-                            <!-- Loading (remove the following to stop the loading)-->
-                            <div class="overlay dark">
-                                <i class="fas fa-2x fa-cog"></i>
-                            </div>
-                            <!-- end loading -->
                         </div>
                     </div>
                     <div class="col-md-12">

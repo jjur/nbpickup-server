@@ -46,7 +46,7 @@
         CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
             mode: "python",
             theme: "monokai"
-        }).setSize(null,110);
+        }).setSize(null,140);
     })
 </script>
 <script>
