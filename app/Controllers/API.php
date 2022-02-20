@@ -155,28 +155,21 @@ class Api extends BaseController
         echo $file_id;
         die(200);
     }
-    public function download_list($assignment, $class = FALSE)
+
+    /**
+     * Provides a list of files submitted for provided assignment on json format.
+     * @param $class
+     * @return void
+     */
+    public function download_list()
     {
         global $DATA; # $DATA["assignment"]
 
         $model_submissions = new SubmissionsModel();
 
-        $submissions = $model_submissions->
+        $submissions = $model_submissions->get($DATA["assignment"]["a_id"]);
 
-
-        # return json_encode($DATA["assignment"]);
-        # $this->load->model("Users");
-        # $user = $this->Users->get_user_id_by_token($token);
-        $assignment_ok = $this->Users->get_assignment_id($assignment);
-        # if ($this->Users->is_owner($user, $assignment_ok)) {
-        #     $this->load->model("Submits");
-        #     $lst = $this->Submits->get_list($assignment_ok, $class);
-        #     echo json_encode($lst);
-        #    die();
-        #} else {
-        #     echo "Error: You do not have rights to download this assginmnet";
-        #    die();
-        #}
+        echo json_encode($submissions);
     }
 }
 
