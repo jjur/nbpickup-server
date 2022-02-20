@@ -14,5 +14,8 @@ class SubmissionsModel extends Model
     protected $deletedField  = 's_deleted_at';
     protected $primaryKey = 's_id';
 
-
+    public function get_submissions($assignment_id){
+        $db = db_connect();
+        return $db->query("SELECT * FROM submissions JOIN users ON users.id=submissions.s_user JOIN file_submission ON file_submission.submission = submissions.s_id JOIN files ON files.f_id = file_submission.file WHERE (s_id IN (SELECT MAX(s_id) as s_id FROM submissions WHERE (`s_assignment` = $assignment_id) GROUP BY `s_user`, `s_assignment`))")->result_array();
+    }
 }

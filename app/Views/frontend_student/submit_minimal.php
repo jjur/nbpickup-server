@@ -3,7 +3,7 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
         <div class="card-header text-center" >
-            <form action="<?= base_url();?>/student/submit_minimal/" method="post">
+            <form action="<?= base_url();?>/student/submit_minimal/<?= $assignment_code;?>/<?= urlencode($student_email);?>" method="post">
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group" style="text-align: left; margin-bottom: 0px">
@@ -14,7 +14,8 @@
                                 <label class="custom-file-label" for="file">Choose file</label>
                             </div>
                             <div class="input-group-append">
-                                <span class="input-group-text btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff;">Submit</span>
+                                <input class="input-group-text btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff;"  type="submit">
+
                             </div>
                         </div>
                     </div>

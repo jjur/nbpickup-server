@@ -77,7 +77,7 @@
 import nbpickup.submissions as nbpickup
 email = "<?= lang("AssignmentSettings.insert_email_caps")?>"
 if nbpickup.set_email(email):
-    nbpickup.submit_ipynb("<?=$assignment["a_name"];?>")
+    nbpickup.submit_ipynb("<?=$assignment["a_alias"];?>")
               </textarea>
                             </div>
                             <!-- /.card-body -->
@@ -98,7 +98,7 @@ if nbpickup.set_email(email):
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="a_name"><?= lang("AssignmentSettings.submission_url") ?></label>
-                                            <input type="text" class="form-control" id="a_name" name="a_name" value="https://nbpick.org/student/submit/<?=$assignment["a_name"];?>">
+                                            <input type="text" class="form-control" id="a_name" name="a_name" value="https://nbpick.org/student/submit/<?=$assignment["a_alias"];?>">
                                         </div>
                                     </div>
                                 </div>

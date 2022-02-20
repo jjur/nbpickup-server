@@ -42,15 +42,19 @@ class StudentAPI extends BaseController
         }
 
         // Save File
+        $original_filename = $file->getName();
         $filepath = $file->store();
         $filename = $file->getName();
 
         $model_assigments = new AssignmentsModel();
         $assignment_id = $model_assigments->get_id_by_alias($assingment_alias);
         if (! $assignment_id){
-            echo "Error: Asssigment not recognized";
+            echo "Error: Assignment not recognized";
             die(404);
+        }else{
+            $assignment_id = $assignment_id["a_id"];
         }
+
 
         if ($email){
             $user_model = new IonAuthModel();
@@ -67,7 +71,7 @@ class StudentAPI extends BaseController
             $model_file_submissions = new FileSubmissionModel();
 
             $submission_data = array(
-                "s_assingment" => $assignment_id,
+                "s_assignment" => $assignment_id,
                 "s_user" => $user_id,
                 "s_sub_method" => "API"
             );
@@ -76,7 +80,7 @@ class StudentAPI extends BaseController
             $file_data = array(
                 "f_hash" => hash_file("md5",WRITEPATH . "uploads/" .$filepath),
                 "f_filename_internal" => $filepath,
-                "f_filename_original" => $filename,
+                "f_filename_original" => $original_filename,
                 "f_filepath" => "",
                 "f_owner" => $user_id
             );

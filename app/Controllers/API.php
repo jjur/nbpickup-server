@@ -7,6 +7,7 @@ use App\Models\AssignmentsModel;
 use App\Models\FileAssignmentModel;
 use App\Models\FilesModel;
 use App\Models\GradebooksModel;
+use App\Models\SubmissionsModel;
 use App\Models\TokensModel;
 
 const PAGE_TITLE = " | nbpickup | Dashboard";
@@ -154,6 +155,29 @@ class Api extends BaseController
         echo $file_id;
         die(200);
     }
+    public function download_list($assignment, $class = FALSE)
+    {
+        global $DATA; # $DATA["assignment"]
+
+        $model_submissions = new SubmissionsModel();
+
+        $submissions = $model_submissions->
+
+
+        # return json_encode($DATA["assignment"]);
+        # $this->load->model("Users");
+        # $user = $this->Users->get_user_id_by_token($token);
+        $assignment_ok = $this->Users->get_assignment_id($assignment);
+        # if ($this->Users->is_owner($user, $assignment_ok)) {
+        #     $this->load->model("Submits");
+        #     $lst = $this->Submits->get_list($assignment_ok, $class);
+        #     echo json_encode($lst);
+        #    die();
+        #} else {
+        #     echo "Error: You do not have rights to download this assginmnet";
+        #    die();
+        #}
+    }
 }
 
 /*
@@ -177,3 +201,4 @@ function download_file($file)
         die(404);
     }
 }
+
