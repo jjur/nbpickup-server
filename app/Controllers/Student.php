@@ -42,7 +42,7 @@ class Student extends BaseController
             if($file_identifier){
                 $DATA["url"] = $file_identifier;
                 echo view("frontend_student/header");
-                echo view("frontend_student/response_minimal", $DATA);
+                echo view("frontend_student/response", $DATA);
                 return view('frontend_student/footer');
             }else{
                 // Submissions Failed

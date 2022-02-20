@@ -34,11 +34,11 @@ class StudentAPI extends BaseController
 
         // Initialization of modules
         $email = $this->request->getVar("email");
-        $file  = $this->request->getFile('file');
+        $file = $this->request->getFile('file');
 
         // Validate file
-        if (! $file->isValid()) {
-            throw new \RuntimeException($file->getErrorString().'('.$file->getError().')');
+        if (!$file->isValid()) {
+            throw new \RuntimeException($file->getErrorString() . '(' . $file->getError() . ')');
         }
 
         // Save File
@@ -48,25 +48,25 @@ class StudentAPI extends BaseController
 
         $model_assigments = new AssignmentsModel();
         $assignment_id = $model_assigments->get_id_by_alias($assingment_alias);
-        if (! $assignment_id){
+        if (!$assignment_id) {
             echo "Error: Assignment not recognized";
             die(404);
-        }else{
+        } else {
             $assignment_id = $assignment_id["a_id"];
         }
 
 
-        if ($email){
+        if ($email) {
             $user_model = new IonAuthModel();
             $user_id = $user_model->getUserIdFromIdentity($email);
 
-            if (!$user_id){
+            if (!$user_id) {
                 // Register a new user
                 $auth = new IonAuth();
-                $user_id = $auth->register($email,bin2hex(random_bytes(32)),$email);
+                $user_id = $auth->register($email, bin2hex(random_bytes(32)), $email);
             }
 
-            $model_files       = new FilesModel();
+            $model_files = new FilesModel();
             $model_submissions = new SubmissionsModel();
             $model_file_submissions = new FileSubmissionModel();
 
@@ -78,7 +78,7 @@ class StudentAPI extends BaseController
             $sub_id = $model_submissions->insert($submission_data);
 
             $file_data = array(
-                "f_hash" => hash_file("md5",WRITEPATH . "uploads/" .$filepath),
+                "f_hash" => hash_file("md5", WRITEPATH . "uploads/" . $filepath),
                 "f_filename_internal" => $filepath,
                 "f_filename_original" => $original_filename,
                 "f_filepath" => "",
@@ -90,16 +90,17 @@ class StudentAPI extends BaseController
                 "file" => $file_id,
                 "submission" => $sub_id
             );
-            return $model_file_submissions->insert($junction_data);
+            if ($model_file_submissions->insert($junction_data)) {
+                return base_url("Student/view_submission/$filepath");
+            };
 
-        }else{
+        } else {
             // Very anonymous submisssions
             // TODO: Implement later
             die();
         }
 
         // Find user account
-
 
 
     }

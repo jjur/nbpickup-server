@@ -8,7 +8,7 @@
         <div class="card-body">
             <p class="login-box-msg">Submission Page</p>
 
-            <form action="<?= base_url(); ?>/student/submit/" method="post">
+            <form action="<?= base_url(); ?>/student/submit" method="post" enctype='multipart/form-data'>
                 <div class="form-group">
                     <label for="assignment_code">Assignment Code</label>
                     <input type="text" class="form-control" id="assignment_code" name="assignment_code"

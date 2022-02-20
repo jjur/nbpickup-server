@@ -3,7 +3,7 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
         <div class="card-header text-center" >
-            <form action="<?= base_url();?>/student/submit_minimal/<?= $assignment_code;?>/<?= urlencode($student_email);?>" method="post">
+            <form action="<?= base_url();?>/student/submit_minimal/<?= $assignment_code;?>/<?= urlencode($student_email);?>" method="post" enctype='multipart/form-data'>
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group" style="text-align: left; margin-bottom: 0px">
