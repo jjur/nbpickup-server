@@ -19,38 +19,38 @@
 
     <section>
         <ul class="pagination pagination-month justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">«</a></li>
+            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/settings/" . $id);?>">«</a></li>
             <li class="page-item">
-                <a class="page-link" href="#">
+                <a class="page-link" href="<?=base_url("Assignments/create/" . $id);?>">
                     <p class="page-month">Basic</p>
                     <p class="page-year">Information</p>
                 </a>
             </li>
             <li class="page-item active">
-                <a class="page-link" href="#">
+                <a class="page-link" href="<?=base_url("Assignments/settings/" . $id);?>">
                     <p class="page-month">Submission</p>
                     <p class="page-year">Options</p>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">
+                <a class="page-link" href="<?=base_url("Assignments/resources/" . $id);?>">
                     <p class="page-month">Assignment</p>
                     <p class="page-year">Files</p>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">
-                    <p class="page-month">Publish</p>
+                <a class="page-link" href="<?=base_url("Assignments/share/" . $id);?>">
+                    <p class="page-month">Share</p>
                     <p class="page-year">Assingment</p>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">
+                <a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">
                     <p class="page-month">Grading</p>
                     <p class="page-year">Dashboard</p>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">»</a></li>
+            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">»</a></li>
         </ul>
     </section>
 
