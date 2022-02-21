@@ -163,10 +163,10 @@
                                             <td><?= $gradebook["g_created_at"];?></td>
                                             <!--<td> kB</td>-->
                                             <td>Assignments: <?= $gradebook["g_stats_assignments"];?>, Students: <?= ($gradebook["g_stats_students"]==-1)?"0":$gradebook["g_stats_students"];?></td>
-                                            <td><?= round($file["f_filesize"]/1000,2);?> kB</td>
+                                            <td><?= round($gradebook["f_filesize"]/1000,2);?> kB</td>
                                             <td class="text-right py-0 align-middle">
                                                 <div class="btn-group btn-group-sm">
-                                                    <a href="<?= base_url("Assignments/get_file/".$file["f_filename_internal"]);?>" class="btn btn-info"><i class="fas fa-download"></i> Download</a>
+                                                    <a href="<?= base_url("Assignments/get_file/".$gradebook["f_filename_internal"]);?>" class="btn btn-info"><i class="fas fa-download"></i> Download</a>
                                                 </div></td>
                                         </tr>
                                         <?php
