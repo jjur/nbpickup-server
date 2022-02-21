@@ -7,7 +7,7 @@
         'upload' => 'Upload',
         'timestamp' => 'Timestamp',
         'size' => 'Size',
-        'additional_details' => '...',
+        'additional_details' => 'DB Content',
         'gradebook_history' => 'Gradebook History',
 
         'files_box_title' => 'Assignment Files',

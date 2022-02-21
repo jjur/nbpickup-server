@@ -303,6 +303,24 @@ class Assignments extends BaseController
             unlink($destination);
         }
     }
+
+    public function get_file($folder, $submission_identifier){
+
+        $filename = WRITEPATH . "uploads/" ."$folder/$submission_identifier";
+
+        // Validate if the file exists
+        if (file_exists($filename)) {
+            $details = pathinfo($filename);
+            $file_extention = $details["extension"];
+
+            // Output the file
+            # download_file($filename);
+            return $this->response->download($filename, null)->setFileName("file.$file_extention");
+        } else {
+            sleep(2);
+            echo "Incorrect File identifier. Please check the link and try again.";
+        }
+    }
 }
 
 /*

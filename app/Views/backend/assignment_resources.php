@@ -50,7 +50,8 @@
                                             <td><?= round($file["f_filesize"]/1000,2);?> kB</td>
                                             <td class="text-right py-0 align-middle">
                                                 <div class="btn-group btn-group-sm">
-                                                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                                    <a href="<?= base_url("Student/view_submission/".$file["f_filename_internal"]);?>" target="_blank" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                                                    <a href="<?= base_url("Student/get_submission/".$file["f_filename_internal"]);?>" target="_blank" class="btn btn-info"><i class="fas fa-download"></i></a>
                                                     <!--<a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>-->
                                                 </div></td>
                                         </tr>
@@ -83,7 +84,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card card-info">
                             <div class="card-header">
                                 <h3 class="card-title"><?= lang("AssignmentResources.gradebook_box_title") ?></h3>
@@ -113,22 +114,28 @@
                                             <th><?= lang("AssignmentResources.timestamp") ?></th>
                                             <!--<th><?= lang("AssignmentResources.size") ?></th>-->
                                             <th><?= lang("AssignmentResources.additional_details") ?></th>
+                                            <th><?= lang("AssignmentResources.size") ?></th>
                                             <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php foreach ($gradebooks as $gradebook){ ?>
+                                        <?php
+                                        $first = True;
+                                        foreach ($gradebooks as $gradebook){ ?>
                                         <tr>
-                                            <td><?= $gradebook["g_id"];?></td>
+                                            <td><?= $gradebook["g_id"];?> <?= ($first)?'<span class="float-right badge bg-success">Active</span>':"";?></td>
                                             <td><?= $gradebook["g_created_at"];?></td>
                                             <!--<td> kB</td>-->
-                                            <td>A: <?= $gradebook["g_stats_assignments"];?>, S: <?= $gradebook["g_stats_students"];?></td>
+                                            <td>Assignments: <?= $gradebook["g_stats_assignments"];?>, Students: <?= ($gradebook["g_stats_students"]==-1)?"0":$gradebook["g_stats_students"];?></td>
+                                            <td><?= round($file["f_filesize"]/1000,2);?> kB</td>
                                             <td class="text-right py-0 align-middle">
                                                 <div class="btn-group btn-group-sm">
-                                                    <a href="#<?= $gradebook["g_id"];?>" class="btn btn-success"><i class="fas fa-check"></i> Active</a>
+                                                    <a href="<?= base_url("Assignments/get_file/".$file["f_filename_internal"]);?>" class="btn btn-info"><i class="fas fa-download"></i> Download</a>
                                                 </div></td>
                                         </tr>
-                                        <?php }?>
+                                        <?php
+                                        $first = False;
+                                        }?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -136,6 +143,7 @@
                         </div>
                     </div>
 
+                    <!--
                     <div class="col-md-4">
                         <div class="card card-warning">
                             <div class="card-header">
@@ -148,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-
+-->
 
 
                 </div>
