@@ -45,12 +45,12 @@
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="<?=base_url("Assignments/resources/" . $id);?>">
+                <a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">
                     <p class="page-month">Submissions</p>
                     <p class="page-year">Dashboard</p>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">»</a></li>
+            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/resources/" . $id);?>">»</a></li>
         </ul>
     </section>
 
