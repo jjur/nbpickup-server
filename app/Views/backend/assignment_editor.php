@@ -26,30 +26,30 @@
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="<?=base_url("Assignments/settings/" . $id);?>">
+                <a class="page-link" href="<?=($id>0)?base_url("Assignments/settings/" . $id):"#";?>">
                     <p class="page-month">Submission</p>
                     <p class="page-year">Options</p>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="<?=base_url("Assignments/resources/" . $id);?>">
+                <a class="page-link" href="<?=($id>0)?base_url("Assignments/resources/" . $id):"#";?>">
                     <p class="page-month">Assignment</p>
                     <p class="page-year">Files</p>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="<?=base_url("Assignments/share/" . $id);?>">
+                <a class="page-link" href="<?=($id>0)?base_url("Assignments/share/" . $id):"#";?>">
                     <p class="page-month">Share</p>
                     <p class="page-year">Assingment</p>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">
+                <a class="page-link" href="<?=($id>0)?base_url("Assignments/grading/" . $id):"#";?>">
                     <p class="page-month">Submissions</p>
                     <p class="page-year">Dashboard</p>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">»</a></li>
+            <li class="page-item"><a class="page-link" href="<?=($id>0)?base_url("Assignments/grading/" . $id):"#";?>">»</a></li>
         </ul>
     </section>
     <!-- Main content -->
