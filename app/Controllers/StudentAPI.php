@@ -82,6 +82,7 @@ class StudentAPI extends BaseController
                 "f_filename_internal" => $filepath,
                 "f_filename_original" => $original_filename,
                 "f_filepath" => "",
+                "f_filesize" => filesize( WRITEPATH . "uploads/" . $filepath),
                 "f_owner" => $user_id
             );
             $file_id = $model_files->insert($file_data);
