@@ -86,7 +86,17 @@ class Api extends BaseController
         $file = $model_gradebooks->find_latest_for_assignment($DATA["assignment"]["a_id"]);
         if ($file) {
             // Check the assignment the file is associated with
-            download_file($file);
+            $filename = WRITEPATH . "uploads/" .$file["f_filename_internal"];
+
+            if (file_exists($filename)) {
+                download_file($file);
+            }else{
+                http_response_code(404);
+            }
+        }
+        else {
+            http_response_code(404);
+            die();
         }
     }
 
@@ -161,16 +171,17 @@ class Api extends BaseController
      * @param $class
      * @return void
      */
-    public function download_list()
+    public function download_submission_list()
     {
         global $DATA; # $DATA["assignment"]
 
         $model_submissions = new SubmissionsModel();
 
-        $submissions = $model_submissions->get($DATA["assignment"]["a_id"]);
+        $submissions = $model_submissions->get_submissions($DATA["assignment"]["a_id"]);
 
         echo json_encode($submissions);
     }
+
 }
 
 /*
