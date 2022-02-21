@@ -19,7 +19,7 @@
 
     <section>
         <ul class="pagination pagination-month justify-content-center">
-            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/settings/" . $id);?>">«</a></li>
+            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/create/" . $id);?>">«</a></li>
             <li class="page-item">
                 <a class="page-link" href="<?=base_url("Assignments/create/" . $id);?>">
                     <p class="page-month">Basic</p>
@@ -45,8 +45,8 @@
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">
-                    <p class="page-month">Grading</p>
+                <a class="page-link" href="<?=base_url("Assignments/resources/" . $id);?>">
+                    <p class="page-month">Submissions</p>
                     <p class="page-year">Dashboard</p>
                 </a>
             </li>

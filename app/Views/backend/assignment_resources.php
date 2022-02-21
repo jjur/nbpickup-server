@@ -46,11 +46,11 @@
             </li>
             <li class="page-item">
                 <a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">
-                    <p class="page-month">Grading</p>
+                    <p class="page-month">Submissions</p>
                     <p class="page-year">Dashboard</p>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/grading/" . $id);?>">»</a></li>
+            <li class="page-item"><a class="page-link" href="<?=base_url("Assignments/share/" . $id);?>">»</a></li>
         </ul>
     </section>
     <!-- Main content -->
