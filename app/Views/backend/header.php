@@ -14,6 +14,11 @@
     <!-- CodeMirror -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/codemirror/codemirror.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/codemirror/theme/monokai.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets_admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
     <!-- Falvicons -->
     <!-- TODO: https://catalin.red/svg-favicon-light-dark-theme/ -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>/assets/icons/apple-touch-icon.png">

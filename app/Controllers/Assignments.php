@@ -7,6 +7,7 @@ use App\Models\AssignmentsModel;
 use App\Models\FileAssignmentModel;
 use App\Models\FilesModel;
 use App\Models\GradebooksModel;
+use App\Models\SubmissionsModel;
 use App\Models\TokensModel;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -210,6 +211,9 @@ class Assignments extends BaseController
         $DATA["files"] = $model_files->get_all_for_assignment_id($assignment_id);
         $DATA["gradebooks"] = $model_gradebooks->get_5_for_assignment_id($assignment_id);
 
+        $model_submissions = new SubmissionsModel();
+
+        $DATA["submissions"] =  $model_submissions->get_submissions($assignment_id);
 
         echo view("backend/header");
 
