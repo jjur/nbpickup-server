@@ -195,6 +195,28 @@ class Assignments extends BaseController
         return view('backend/footer', $DATA);
     }
 
+    public function grading($assignment_id)
+    {
+        global $DATA;
+        $DATA["id"] = $assignment_id;
+        helper("form");
+
+        $model_assignments = new AssignmentsModel();
+        $DATA["assignment"] = $model_assignments->find($assignment_id);
+
+        $model_files = new FilesModel();
+        $model_gradebooks = new GradebooksModel();
+
+        $DATA["files"] = $model_files->get_all_for_assignment_id($assignment_id);
+        $DATA["gradebooks"] = $model_gradebooks->get_5_for_assignment_id($assignment_id);
+
+
+        echo view("backend/header");
+
+        echo view("backend/assignment_submissions", $DATA);
+        return view('backend/footer', $DATA);
+    }
+
     public function set_repo($id)
     {
 
