@@ -7,6 +7,7 @@ use App\Models\AssignmentsModel;
 use App\Models\FileAssignmentModel;
 use App\Models\FilesModel;
 use App\Models\GradebooksModel;
+use App\Models\GradesModel;
 use App\Models\SubmissionsModel;
 use App\Models\TokensModel;
 
@@ -180,6 +181,37 @@ class Api extends BaseController
         $submissions = $model_submissions->get_submissions($DATA["assignment"]["a_id"]);
 
         echo json_encode($submissions);
+    }
+
+    /**
+     * Function that updates grades in the database for provided submissions.
+     * @return void
+     * @throws \ReflectionException
+     */
+    public function upload_grades()
+    {
+        $model_files = new FilesModel();
+        $model_files_assignments = new FileAssignmentModel();
+        $model_grades = new GradesModel();
+
+        $grades_json = $this->request->getVar('grades');
+
+        $grades = json_decode($grades_json);
+
+        foreach ($grades as $submission => $grade ){
+
+            // Check if grade exist
+            $record = $model_grades->find_grade($submission);
+
+            if ($record){
+                // If yes, update grade
+                $model_grades->update($record["g_id"], ["g_score" => $grade]);
+            }else{
+                // Else, create new grade
+                $model_grades->insert(["g_score" => $grade, "g_submission" => $submission]);
+            }
+        }
+        die(200);
     }
 
 }
