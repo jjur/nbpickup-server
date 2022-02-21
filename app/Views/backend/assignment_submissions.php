@@ -81,7 +81,7 @@
                                     <tr>
                                         <td><?= $submission["username"]; ?> </td>
                                         <td><?= $submission["f_updated_at"]; ?></td>
-                                        <td><?= "Needs grading"; ?> </td>
+                                        <td><?= $submission["g_score"]?:"Needs grading"; ?> </td>
                                         <td class="text-right py-0 align-middle">
                                             <div class="btn-group btn-group-sm">
                                                 <a href="<?= base_url("Student/view_submission/" . $submission["f_filename_internal"]); ?>"
