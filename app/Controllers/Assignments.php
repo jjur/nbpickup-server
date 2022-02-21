@@ -125,6 +125,7 @@ class Assignments extends BaseController
         global $DATA;
         $DATA["id"] = $assignment_id;
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            // TODO: Saving
             return redirect()->to(base_url()."/Assignments/resources/" . $assignment_id."/");
         }
         $model_assignments = new AssignmentsModel();
@@ -159,6 +160,7 @@ class Assignments extends BaseController
     {
         global $DATA;
         $DATA["id"] = $assignment_id;
+        helper("form");
 
         $model_assignments = new AssignmentsModel();
         $DATA["assignment"] = $model_assignments->find($assignment_id);
@@ -193,8 +195,29 @@ class Assignments extends BaseController
         return view('backend/footer', $DATA);
     }
 
+    public function set_repo($id)
+    {
 
-    /*
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $model_assignments = new AssignmentsModel();
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            // Perform form validation and save data to the server
+            // If action was successful, we redirect user to submission methods page
+            // Else we show the standard form so user can fix error in the form
+
+
+            $formdata = array('a_repo_url' => $request->getVar("repo_url", FILTER_SANITIZE_URL));
+            $model_assignments->update($id,$formdata);
+            return redirect()->to(base_url()."/Assignments/share/" . $id."/");
+
+        }
+        return redirect()->to(base_url()."/Assignments/share/" . $id."/");
+    }
+
+
+    /**
      * Generates one-time tokens required for accessing authoring and grading binders.
      */
     public function get_token($assignment_id){
