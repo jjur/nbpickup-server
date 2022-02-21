@@ -155,6 +155,45 @@ class Assignments extends BaseController
         return view('backend/footer', $DATA);
     }
 
+    public function share($assignment_id)
+    {
+        global $DATA;
+        $DATA["id"] = $assignment_id;
+
+        $model_assignments = new AssignmentsModel();
+        $DATA["assignment"] = $model_assignments->find($assignment_id);
+
+        $model_files = new FilesModel();
+        $model_gradebooks = new GradebooksModel();
+
+        $DATA["files"] = $model_files->get_all_for_assignment_id($assignment_id);
+        $DATA["gradebooks"] = $model_gradebooks->get_5_for_assignment_id($assignment_id);
+
+        $DATA["card_step2"] = False;
+        $DATA["card_step3"] = False;
+        $DATA["submissions"] = False;
+        $DATA["all_graded"] = False;
+
+        foreach ($DATA["files"] as $file){
+            if ($file["private"] == "1"){
+                $DATA["card_step2"] = True;
+            }
+            if ($file["private"] == "0" and count($DATA["gradebooks"])>0){
+                $DATA["card_step3"] = True;
+            }
+        }
+
+
+
+
+        echo view("backend/header");
+        #echo var_dump($DATA["files"]);
+        #echo var_dump($DATA["gradebooks"]);
+        echo view("backend/assignment_share", $DATA);
+        return view('backend/footer', $DATA);
+    }
+
+
     /*
      * Generates one-time tokens required for accessing authoring and grading binders.
      */
