@@ -157,14 +157,14 @@ if nbpickup.set_email(email):
                 </div>
 
                 <div class="col-md-6">
-                    <div class="card <?= $card_step3 ? ($assignment["a_repo_url"]?"card-primary":"card-warning") : "card-secondary collapsed-card"; ?>">
+                    <div class="card <?= $card_step3 ? ($assignment["a_repo_url"]?"card-primary":"card-warning") : "card-secondary collapsed-card"; ?> <?= $submissions?"collapsed-card":"";?>">
                         <div class="card-header">
                             <h3 class="card-title"><?= get_num(); ?>A. Upload Student´s version to GitHub or Gist
                                 [MANUAL]</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                            class="fas <?= $card_step3 ? "fa-minus" : "fa-plus"; ?>"></i>
+                                            class="fas <?= $card_step3 ? ($submissions?"fa-plus":"fa-minus"): "fa-plus"; ?>"></i>
                                 </button>
                             </div>
                         </div>
@@ -221,7 +221,7 @@ if nbpickup.set_email(email):
                 </div>
 
                 <div class="col-md-6">
-                    <div class="card <?= $card_step3 ? ($assignment["a_repo_url"]?"card-secondary collapsed-card":"card-warning") : "card-secondary collapsed-card"; ?>">
+                    <div class="card <?= $card_step3 ? ($assignment["a_repo_url"]?"card-secondary collapsed-card":(($submissions)?"card-success collapsed-card":"card-warning")): "card-secondary collapsed-card"; ?>">
                         <div class="card-header">
                             <h3 class="card-title"><?= get_num(0); ?>B. Share notebook file directly with student´s
                                 [MANUAL]</h3>
@@ -243,7 +243,7 @@ if nbpickup.set_email(email):
                 </div>
 
                 <div class="col-md-12">
-                    <div class="card <?= ($submissions) ? ($all_graded ? "card-success collapsed-card" : "card-warning") : "card-secondary collapsed-card"; ?>">
+                    <div class="card <?= ($submissions) ? ($all_graded ? "card-success collapsed-card" : "card-danger") : "card-secondary collapsed-card"; ?>">
                         <div class="card-header">
                             <h3 class="card-title"><?= get_num(); ?>. Grade Submissions</h3>
 
@@ -255,7 +255,7 @@ if nbpickup.set_email(email):
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <?= (!$submissions) ? "<b>No Submissions Yet!</b>" : "TODO: Insert instructions"; ?>
+                            <?= (!$submissions) ? "<b>No Submissions Yet!</b>" : "<b>$submissions_to_be_graded Submissions needs to be graded.</b><br>Please visit tab \"Grading Dashboard\"."; ?>
                         </div>
                     </div>
                 </div>

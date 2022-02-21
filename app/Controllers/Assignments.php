@@ -174,8 +174,10 @@ class Assignments extends BaseController
 
         $DATA["card_step2"] = False;
         $DATA["card_step3"] = False;
-        $DATA["submissions"] = False;
-        $DATA["all_graded"] = False;
+
+        $model_submissions = new SubmissionsModel();
+        $DATA["submissions"] = $model_submissions->get_submissions($assignment_id);
+        $DATA["all_graded"] = True;
 
         foreach ($DATA["files"] as $file){
             if ($file["private"] == "1"){
@@ -184,6 +186,15 @@ class Assignments extends BaseController
             if ($file["private"] == "0" and count($DATA["gradebooks"])>0){
                 $DATA["card_step3"] = True;
             }
+        }
+
+        $DATA["submissions_to_be_graded"] = 0;
+        foreach ($DATA["submissions"] as $submisssion){
+            if (!$submisssion["g_score"]){
+            $DATA["all_graded"] = False;
+            $DATA["submissions_to_be_graded"] ++;
+            }
+
         }
 
 
