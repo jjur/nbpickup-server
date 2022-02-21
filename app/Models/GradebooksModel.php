@@ -39,9 +39,9 @@ class GradebooksModel extends Model
     {
         return $this->asArray()
             ->where(['g_assignment' => $assignment_id])
-            ->orderBy("g_created_at","DESC")->limit(5)
+            ->orderBy("g_created_at","DESC")
             ->join("files","files.f_id = g_file")
-            ->findAll();
+            ->findAll(5);
     }
 
     /**
