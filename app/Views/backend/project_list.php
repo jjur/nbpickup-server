@@ -28,7 +28,7 @@
                 <h3 class="card-title">Your Assignments</h3>
 
                 <div class="card-tools">
-                    <a href="<?=base_url("Assignments/menu");?>" class="btn btn-block btn-success btn-sm">Create Assignment</a>
+                    <a href="<?=base_url("Assignments/create");?>" class="btn btn-block btn-success btn-sm">Create Assignment</a>
                 </div>
             </div>
             <div class="card-body p-0">
@@ -86,18 +86,23 @@
                             <a class="btn btn-primary btn-sm" href="<?= base_url("/Assignments/resources/".$assignment["a_id"]);?>">
                                 <i class="fas fa-folder">
                                 </i>
-                                View
+                                Files
                             </a>
-                            <a class="btn btn-info btn-sm" href="<?= base_url("/Assignments/create/".$assignment["a_id"]);?>">
+                            <a class="btn btn-primary btn-sm" href="<?= base_url("/Assignments/resources/".$assignment["a_id"]);?>">
+                                <i class="fas fa-share">
+                                </i>
+                                Share
+                            </a>
+                            <a class="btn btn-info btn-sm" href="<?= base_url("/Assignments/grading/".$assignment["a_id"]);?>">
                                 <i class="fas fa-pencil-alt">
                                 </i>
-                                Edit
+                                Grading
                             </a>
-                            <a class="btn btn-danger btn-sm" href="<?= base_url("/Assignments/delete/".$assignment["a_id"]);?>">
+                            <!--<a class="btn btn-danger btn-sm" href="<?= base_url("/Assignments/delete/".$assignment["a_id"]);?>">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete
-                            </a>
+                            </a>-->
                         </td>
                     </tr><?php } ?>
                     <!--<tr>
