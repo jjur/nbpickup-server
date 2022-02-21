@@ -316,6 +316,14 @@ class Assignments extends BaseController
             copy($source, $directory.$file_details["f_filename_original"]);
         }
 
+        // Add requirements.txt
+        $myfile = fopen($directory."requirements.txt", "w") or die("Unable to open file!");
+        $txt = "nbpickup\n";
+        fwrite($myfile, $txt);
+        fclose($myfile);
+
+
+
         Zip($directory,$destination);
 
         if(file_exists($destination)){
