@@ -146,7 +146,7 @@ class Assignments extends BaseController
         $model_gradebooks = new GradebooksModel();
 
         $DATA["files"] = $model_files->get_all_for_assignment_id($assignment_id);
-        $DATA["gradebooks"] = $model_gradebooks->get_all_for_assignment_id($assignment_id);
+        $DATA["gradebooks"] = $model_gradebooks->get_5_for_assignment_id($assignment_id);
 
         echo view("backend/header");
         #echo var_dump($DATA["files"]);
