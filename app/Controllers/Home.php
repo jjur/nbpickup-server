@@ -14,6 +14,14 @@ class Home extends BaseController
 		return view('frontend/footer');
 	}
 
+    public function terms_of_use()
+    {
+
+        echo view("frontend/header");
+        echo view("frontend/homepage");
+        return view('frontend/footer');
+    }
+
     public function register()
     {
         $DATA["hi"] = "Just making sure data is not empty";
