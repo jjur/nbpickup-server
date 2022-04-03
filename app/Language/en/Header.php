@@ -8,5 +8,6 @@
         'login' => 'Login',
         'lang' => 'LANG',
         'short' => 'EN',
+        'registration' => 'Sign Up',
         #'' => '',
     ];

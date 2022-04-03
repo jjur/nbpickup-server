@@ -2,11 +2,12 @@
     return [
         'title' => 'nbpickup',
         'home' => 'Domov',
-        'features' => 'Features',
+        'features' => 'Funkcie',
         'pricing' => 'Cenník',
         'docs' => 'Dokumentácia',
         'login' => 'Prihlásenie',
         'lang' => 'Jazyk',
         'short' => 'SK',
+        'registration' => 'Registrácia',
         #'' => '',
     ];

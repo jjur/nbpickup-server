@@ -2,32 +2,32 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <h5>Get started</h5>
+                <h5><?= lang("Footer.get_started")?></h5>
                 <ul>
-                    <li><a href="<?=base_url();?>">Home</a></li>
+                    <li><a href="<?=base_url();?>"><?= lang("Footer.home")?></a></li>
                     <!--<li><a href="<?= base_url("/home/register");?>">Register</a></li>-->
-                    <li><a href="https://docs.nbpickup.org">Documentation</a></li>
+                    <li><a href="https://docs.nbpickup.org"><?= lang("Footer.docs")?></a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>Contribute</h5>
+                <h5><?= lang("Footer.contribute")?></h5>
                 <ul>
-                    <li><a href="https://github.com/jjur/nbpickup-server">GitHub Server</a></li>
-                    <li><a href="https://github.com/jjur/nbpickup-client-python">GitHub Python Library</a></li>
+                    <li><a href="https://github.com/jjur/nbpickup-server"><?= lang("Footer.github_server")?></a></li>
+                    <li><a href="https://github.com/jjur/nbpickup-client-python"><?= lang("Footer.github_library")?></a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
                 <h5 style="color:#00000000">...</h5>
                 <ul>
-                    <li><a href="https://github.com/jjur/nbpickup-server/issues/new">Report Issue</a></li>
+                    <li><a href="https://github.com/jjur/nbpickup-server/issues/new"><?= lang("Footer.report")?></a></li>
 
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>Legal</h5>
+                <h5><?= lang("Footer.legal")?></h5>
                 <ul>
-                    <li><a href="https://github.com/jjur/nbpickup-server/blob/main/LICENSE">Licence</a></li>
-                    <li><a href="<?=base_url("home/terms_of_use");?>">Terms of Use</a></li>
+                    <li><a href="https://github.com/jjur/nbpickup-server/blob/main/LICENSE"><?= lang("Footer.licence")?></a></li>
+                    <li><a href="<?=base_url("home/terms_of_use");?>"><?= lang("Footer.terms")?></a></li>
                 </ul>
             </div>
         </div>
