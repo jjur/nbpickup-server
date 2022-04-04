@@ -13,7 +13,7 @@ Welcome to nbpickup's documentation!
    pages/what_is
    pages/use_cases
    pages/registration
-   pages/nbgrader
+   pages/nbgrader_quick_start
    pages/nbpickup_py_client
    pages/deployment
 
