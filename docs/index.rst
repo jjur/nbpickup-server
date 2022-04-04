@@ -10,7 +10,11 @@ Welcome to nbpickup's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   pages/what_is
+   pages/use_cases
    pages/registration
+   pages/nbgrader
+   pages/nbpickup_py_client
    pages/deployment
 
 
