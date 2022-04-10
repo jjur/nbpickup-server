@@ -1,7 +1,7 @@
 What is nbpickup?
 ===========================
 
-Lorem Ipsum
+Open source library.
 
 ------------
 nbpickup Mission
