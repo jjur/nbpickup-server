@@ -1,17 +1,23 @@
 nbpickup Python Library
 ===========================
 
-Lorem Ipsum
+Get via `PIP <https://pypi.org/project/nbpickup/>`_
 
 ------------
 Features
 ------------
 
-Lorem Ipsum
+Coming soon...
 
 ------------
 How to install
 ------------
 
-Lorem Ipsum
+Run following code in terminal::
+
+    pip install nbpickup
+
+OR following code in jupyter notebook::
+
+    !pip install nbpickup
 

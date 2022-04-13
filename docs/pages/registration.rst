@@ -1,20 +1,20 @@
 nbpickup Dashboard
 ===========================
 
-Lorem Ipsum
+nbpickup is the main control panel for all your coding assignments. From the dashboard you can create new assignments, edit existing ones or review students submissions.
 
 ------------
 Registration
 ------------
 
-Lorem Ipsum
+Registration is free, all you need is just valid email address. To register, visit `nbgrader page <https://nbpickup.com/home/register>`_
 
 
 ------------
 New assignment
 ------------
 
-Lorem Ipsum
+Coming soon...
 
 
 
@@ -22,24 +22,24 @@ Lorem Ipsum
 Submission Methods
 ------------
 
-Lorem Ipsum
+Coming soon...
 
 
 ------------
 Authoring Binder
 ------------
 
-Lorem Ipsum
+Coming soon...
 
 
 ------------
 Submissions
 ------------
 
-Lorem Ipsum
+Coming soon...
 
 ------------
 Autograding
 ------------
 
-Lorem Ipsum
+Coming soon...
