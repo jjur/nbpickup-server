@@ -55,6 +55,7 @@ Intro and Authoring of notebooks
 
     <iframe src="https://www.loom.com/embed/5ed9b81c0312485fb6f2cdba98973f37" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 
+
 Developing Autogradable notebooks
 ---------------------------------
 
@@ -67,7 +68,10 @@ Sharing Notebooks with students
 -------------------------------
 
 .. raw:: html
+
    <iframe width="640" height="360" src="https://www.loom.com/embed/d1bbb0a96f0b430189dd529a4b3ac1a2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
 Submitting notebooks
 --------------------
 
@@ -75,9 +79,9 @@ Submitting notebooks
 
    <iframe width="640" height="360" src="https://www.loom.com/embed/5bcdd6aec64b4212a2672c1127367676" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
+
 Autograding with nbgrader
 -------------------------
-
 
 .. raw:: html
 
