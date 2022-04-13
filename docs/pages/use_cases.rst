@@ -28,6 +28,10 @@ on the **Submission Options** screen, you can find working code for submitting y
 Or submission Url:
     https://nbpick.org/student/submit/UNIQUE_ASSIGNMENT_CODE
 
+.. figure:: /_static/nbpickup_url_submission.gif
+   :scale: 100 %
+   :alt: screen capture of assignment submission using Python library
+
 Insert this code to the student´s notebook and you are ready to release it.
 
 After submitting, you will be able to open and review all students submissions.
