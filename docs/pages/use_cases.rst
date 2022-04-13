@@ -60,21 +60,20 @@ Developing Autogradable notebooks
 
 .. raw:: html
 
-    <iframe src="https://www.loom.com/embed/d1bbb0a96f0b430189dd529a4b3ac1a2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+   <iframe src="https://www.loom.com/embed/d1bbb0a96f0b430189dd529a4b3ac1a2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 
 Sharing Notebooks with students
 -------------------------------
 
 .. raw:: html
-
-    <iframe src="https://www.loom.com/embed/1e977f324eed44b2a17ebbf03dca4b72" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+   <iframe src="https://www.loom.com/embed/1e977f324eed44b2a17ebbf03dca4b72" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 
 Submitting notebooks
 --------------------
 
 .. raw:: html
 
-    <iframe src="https://www.loom.com/embed/5bcdd6aec64b4212a2672c1127367676" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+   <iframe src="https://www.loom.com/embed/5bcdd6aec64b4212a2672c1127367676" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 
 Autograding with nbgrader
 -------------------------
@@ -83,7 +82,7 @@ Hello World
 
 .. raw:: html
 
-    <iframe src="https://www.loom.com/embed/452ef9113cb943e0b5641c140db9b8c0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+   <iframe src="https://www.loom.com/embed/452ef9113cb943e0b5641c140db9b8c0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 
 Hello World
 
@@ -92,8 +91,13 @@ Manual Grading and Summary
 --------------------------
 
 Hello World
+
 .. raw:: html
 
-    <iframe width="640" height="360" src="https://www.loom.com/embed/630108da2894451c9d00f3956017dd05" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+   <iframe width="640" height="360" src="https://www.loom.com/embed/630108da2894451c9d00f3956017dd05" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 Hello Again
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/CvIiwRC-7CM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
