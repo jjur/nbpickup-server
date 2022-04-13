@@ -18,7 +18,8 @@ Installation
 ----------------
 
 1. Upload files to webserver
-2. Make sure that public folder is publicly accessible from the domain
+2. Make sure that `public/` folder is publicly accessible from the internet.
+3. Make sure that `writable/` folder has permission for everyone to read and write `CHMOD 755`.
 3. Import Database Schema to your SQL database
 4. Configure database connection in env or `app/Config/Database.php` file.
 5. Enjoy app running on your server
