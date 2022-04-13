@@ -10,9 +10,9 @@ nbpickup suppors standard PHP web server, that is most likely hosting your curre
 
 Required Files
 ----------------
-Source code available from `GitHub<https://github.com/jjur/nbpickup-server>`_
+Source code available from `GitHub <https://github.com/jjur/nbpickup-server>`_
 
-Database Schema from `GitHub<https://github.com/jjur/nbpickup-server/blob/main/database.sql>`_
+Database Schema from `GitHub <https://github.com/jjur/nbpickup-server/blob/main/database.sql>`_
 
 Installation
 ----------------
@@ -36,7 +36,7 @@ This will make sure that your client is always connecting to the right server
 Default Admin account
 ---------------------
 
-nbpickup uses `IonAuth<https://github.com/benedmunds/CodeIgniter-Ion-Auth/tree/4>`_ library, which comes with default admin account as follows:
+nbpickup uses `IonAuth <https://github.com/benedmunds/CodeIgniter-Ion-Auth/tree/4>`_ library, which comes with default admin account as follows:
     email: admin@admin.com
     password: password
 

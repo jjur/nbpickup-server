@@ -44,7 +44,7 @@ Learn more `nbgrader docs - Creating and Grading Assingments <https://nbgrader.r
 Grading of Assignments
 ---------------------------
 
-Learn more `nbgrader docs - Autograding Assignments<https://nbgrader.readthedocs.io/en/stable/user_guide/creating_and_grading_assignments.html#autograde-assignments>`_
+Learn more `nbgrader docs - Autograding Assignments <https://nbgrader.readthedocs.io/en/stable/user_guide/creating_and_grading_assignments.html#autograde-assignments>`_
 
 ------------
 Official nbgrader documentation
