@@ -11,7 +11,7 @@ What is nbgrader?
     It allows instructors to easily create notebook-based assignments that include
     both coding exercises and written free-responses. nbgrader then also provides a streamlined
     interface for quickly grading completed assignments.
-        `nbgrader documentation <https://nbgrader.readthedocs.io/en/stable/>
+        `nbgrader documentation <https://nbgrader.readthedocs.io/en/stable/>`_
 
 ------------
 How to use it?
@@ -39,16 +39,16 @@ database file. This file will be later required during autograding process.
 
 You should *not* edit the release version. Do changes in the source version and generate the new release.
 
-Learn more `nbgrader docs - Creating and Grading Assingments <https://nbgrader.readthedocs.io/en/stable/user_guide/creating_and_grading_assignments.html>`
+Learn more `nbgrader docs - Creating and Grading Assingments <https://nbgrader.readthedocs.io/en/stable/user_guide/creating_and_grading_assignments.html>`_
 
 Grading of Assignments
 ---------------------------
 
-Learn more `nbgrader docs - Autograding Assignments<https://nbgrader.readthedocs.io/en/stable/user_guide/creating_and_grading_assignments.html#autograde-assignments>`
+Learn more `nbgrader docs - Autograding Assignments<https://nbgrader.readthedocs.io/en/stable/user_guide/creating_and_grading_assignments.html#autograde-assignments>`_
 
 ------------
 Official nbgrader documentation
 ------------
 
-`Homepage <https://nbgrader.readthedocs.io/en/stable/>`
+`Homepage <https://nbgrader.readthedocs.io/en/stable/>`_
 
