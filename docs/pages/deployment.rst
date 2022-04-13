@@ -40,4 +40,5 @@ nbpickup uses `IonAuth<https://github.com/benedmunds/CodeIgniter-Ion-Auth/tree/4
     email: admin@admin.com
     password: password
 
+**Please change the default password after deployment to your server!!!**
 
