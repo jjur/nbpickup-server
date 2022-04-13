@@ -40,10 +40,42 @@ After submitting, you will be able to open and review all students submissions.
 B: Migrating existing nbgrader projects
 ------------
 
-Lorem Ipsum
+We are preparing content for this section. Please follow instructions in section C instead.
 
 ------------
 C: Full Featured and start from scratch
 ------------
 
-Lorem Ipsum
+Review the series of following videos to learn more:
+
+Intro and Authoring of notebooks
+--------------------------------
+
+.. raw:: html
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/5ed9b81c0312485fb6f2cdba98973f37" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+Developing Autogradable notebooks
+---------------------------------
+
+.. raw:: html
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/d1bbb0a96f0b430189dd529a4b3ac1a2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+Sharing Notebooks with students
+-------------------------------
+.. raw:: html
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/1e977f324eed44b2a17ebbf03dca4b72" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+Submitting notebooks
+--------------------
+.. raw:: html
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/5bcdd6aec64b4212a2672c1127367676" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+Autograding with nbgrader
+-------------------------
+.. raw:: html
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/452ef9113cb943e0b5641c140db9b8c0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+Manual Grading and Summary
+--------------------------
+.. raw:: html
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/630108da2894451c9d00f3956017dd05" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
