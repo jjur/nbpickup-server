@@ -1,7 +1,7 @@
 What is nbpickup?
 ===========================
 
-Open source library.
+Open source library that brings beginner-friendly coding assignments. Provides environment for creating your coding assingents, allows easy submissions by running one line of code, and prepares all submissions for autograding software.
 
 ------------
 nbpickup Mission
